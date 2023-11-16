@@ -3,8 +3,11 @@
 // Copyright (C) Leszek Pomianowski and WPF UI Contributors.
 // All Rights Reserved.
 
+using DataHarbor.Helpers;
+using DataHarbor.Services;
 using DataHarbor.Views.Pages;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Windows;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
@@ -14,24 +17,23 @@ namespace DataHarbor.ViewModels.Windows
     public partial class MainWindowViewModel : ObservableObject
     {
         [ObservableProperty]
-        private string _applicationTitle = "WPF UI - DataHarbor";
+        private string _applicationTitle = "DataHarbor";
 
         [ObservableProperty]
         private ObservableCollection<object> _menuItems = new()
         {
             new NavigationViewItem()
             {
-                Content = "Home",
+                Content = LanguageService.Instance["Home_Page"],
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Home24 },
                 TargetPageType = typeof(Views.Pages.DashboardPage)
             },
             //多栏
-            new NavigationViewItem("Data", SymbolRegular.DataHistogram24, typeof(DashboardPage))
+            new NavigationViewItem(LanguageService.Instance["Data_Page"], SymbolRegular.DataHistogram24, typeof(DataPage))
             {
                 MenuItems = new object[]
                 {
-                    new NavigationViewItem(nameof(Snackbar), typeof(DataPage)),
-                    new NavigationViewItem(nameof(ContentDialog), typeof(DashboardPage)),
+                    new NavigationViewItem(nameof(Snackbar), typeof(DashboardPage)),
                 }   
             },
         };
@@ -41,7 +43,7 @@ namespace DataHarbor.ViewModels.Windows
         {
             new NavigationViewItem()
             {
-                Content = "Settings",
+                Content = LanguageService.Instance["Settings"],
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Settings24 },
                 TargetPageType = typeof(Views.Pages.SettingsPage)
             }

@@ -2,8 +2,7 @@
 // If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT.
 // Copyright (C) Leszek Pomianowski and WPF UI Contributors.
 // All Rights Reserved.
-
-using DataHarbor.Resources;
+using DataHarbor.Services;
 using System.Globalization;
 
 namespace DataHarbor.ViewModels.Pages
@@ -18,7 +17,7 @@ namespace DataHarbor.ViewModels.Pages
         {
             Counter++;
             //切换语言
-            ////ResourceService.Instance.ChangeLanguage(new CultureInfo("en-US"));
+            LanguageService.Instance.ChangeLanguage(new CultureInfo("en-US"));
         }
     }
 }

@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:DataHarbor.Views.Pages"
+    xmlns:lg="clr-namespace:DataHarbor.Services"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="clr-namespace:DataHarbor.Models"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
@@ -15,29 +16,79 @@
     ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
     ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-    ScrollViewer.CanContentScroll="False"
+    ScrollViewer.CanContentScroll="True"
     mc:Ignorable="d">
 
-    <Grid>
-        <ui:VirtualizingItemsControl
+    <StackPanel>
+        <ui:CardExpander >
+            <ui:CardExpander.Icon>
+                <ui:SymbolIcon Symbol="DatabaseMultiple20"/>
+            </ui:CardExpander.Icon>
+            <ui:CardExpander.Header>
+                <StackPanel>
+                    <TextBlock Text="{Binding [DataSet_Project],Source={x:Static lg:LanguageService.Instance}}" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding [DataSet_Project_D],Source={x:Static lg:LanguageService.Instance}}" FontSize="12"/>
+                </StackPanel>
+            </ui:CardExpander.Header>
+            <ui:CardExpander.Content>
+                <WrapPanel>
+                    <TextBlock Text="Project Name:" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding ViewModel.ProjectName}" VerticalAlignment="Center" Margin="8 0" MinWidth="150"/>
+                    <TextBlock Text="Des:" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding ViewModel.ProjectDescribe}" VerticalAlignment="Center" Margin="8 0" MinWidth="360"/>
+                    <ui:Button Content="{Binding [DataSet_Project_Create],Source={x:Static lg:LanguageService.Instance}}" 
+                           BorderThickness="0" Command="{Binding ViewModel.NewDataSetProjectCommand}"
+                               VerticalAlignment="Center">
+                        <ui:Button.Icon>
+                            <ui:SymbolIcon Symbol="BookAdd24"/>
+                        </ui:Button.Icon>
+                    </ui:Button>
+                </WrapPanel>
+            </ui:CardExpander.Content>
+        </ui:CardExpander>
+        <ui:VirtualizingItemsControl Margin="0 5"
             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
             ItemsSource="{Binding ViewModel.Colors, Mode=OneWay}"
-            VirtualizingPanel.CacheLengthUnit="Item">
+            VirtualizingPanel.CacheLengthUnit="Page">
             <ItemsControl.ItemTemplate>
-                <DataTemplate DataType="{x:Type models:DataColor}">
-                    <ui:Button
-                        Width="80"
-                        Height="80"
-                        Margin="2"
-                        Padding="0"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch"
-                        Appearance="Secondary"
-                        Background="{Binding Color, Mode=OneWay}"
-                        FontSize="25"
-                        Icon="Fluent24" />
+                <DataTemplate>
+                    <Border Width="256" Height="180" Margin="3" HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch" Background="{DynamicResource ApplicationBackgroundBrush}"
+                        CornerRadius="10" Padding="15">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="3*"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <WrapPanel>
+                                <ui:SymbolIcon Symbol="PageFit24"/>
+                                <TextBlock Text="tesx" Margin="5 0 0 0" FontWeight="Bold"/>
+                            </WrapPanel>
+                            <StackPanel Grid.Row="1">
+                                <WrapPanel>
+                                    <TextBlock Text="des:"/>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <TextBlock Text="datanum:"/>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <TextBlock Text="updatetime:"/>
+                                </WrapPanel>
+                            </StackPanel>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="0.05*"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Button Content="Open" HorizontalAlignment="Stretch"/>
+                                <Button Content="More" Grid.Column="2" HorizontalAlignment="Stretch"/>
+                            </Grid>
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ui:VirtualizingItemsControl>
-    </Grid>
+    </StackPanel>
 </Page>

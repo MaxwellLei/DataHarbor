@@ -3,6 +3,7 @@
 // Copyright (C) Leszek Pomianowski and WPF UI Contributors.
 // All Rights Reserved.
 
+using DataHarbor.Helpers;
 using DataHarbor.Services;
 using DataHarbor.ViewModels.Pages;
 using DataHarbor.ViewModels.Windows;
@@ -11,6 +12,7 @@ using DataHarbor.Views.Windows;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Windows.Threading;
@@ -64,7 +66,26 @@ namespace DataHarbor
         /// </summary>
         private void OnStartup(object sender, StartupEventArgs e)
         {
+            Init();
             _host.Start();
+        }
+
+        //初始化——更改语言
+        private void Init()
+        {
+            var temp = ConfigHelper.ReadConfig("Language");
+            if (temp != null)
+            {
+                if (Convert.ToInt32(temp) == 0)
+                {
+                    //改变语言
+                    LanguageService.Instance.ChangeLanguage(new CultureInfo("zh-CN"));
+                }
+                else
+                {
+                    LanguageService.Instance.ChangeLanguage(new CultureInfo("en-US"));
+                }
+            }
         }
 
         /// <summary>

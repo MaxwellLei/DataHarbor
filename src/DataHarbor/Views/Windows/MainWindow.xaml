@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:DataHarbor.Views.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:lg="clr-namespace:DataHarbor.Services"
     Title="{Binding ViewModel.ApplicationTitle, Mode=OneWay}"
     Width="1450"
     Height="802"
@@ -19,7 +20,7 @@
     ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
     ExtendsContentIntoTitleBar="True"
     Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-    WindowBackdropType="Mica"
+    WindowBackdropType="Mica" Closing="FluentWindow_Closing"
     WindowCornerPreference="Round"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -40,6 +41,29 @@
                 <ui:ImageIcon Source="pack://application:,,,/Assets/wpfui-icon-256.png" />
             </ui:TitleBar.Icon>
         </ui:TitleBar>
+
+        <ui:NotifyIcon Grid.Row="0" FocusOnLeftClick="True"
+            Icon="pack://application:,,,/Assets/wpfui-icon-256.png"
+            MenuOnRightClick="True"
+            TooltipText="WPF UI">
+            <ui:NotifyIcon.Menu>
+                <ContextMenu>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <ui:SymbolIcon Symbol="DataUsageToolbox24" Margin="10 0 0 10" FontSize="36"/>
+                        <StackPanel Grid.Row="1">
+                            <ui:Button Content="{Binding [Show],Source={x:Static lg:LanguageService.Instance}}" 
+                                       HorizontalAlignment="Stretch" Click="ShowButton_Click"/>
+                            <ui:Button Content="{Binding [Exit],Source={x:Static lg:LanguageService.Instance}}" HorizontalAlignment="Stretch" 
+                                       Margin="0 5 0 0" Click="CloseButton_Click"/>
+                        </StackPanel>
+                    </Grid>
+                </ContextMenu>
+            </ui:NotifyIcon.Menu>
+        </ui:NotifyIcon>
 
         <ui:NavigationView
             x:Name="NavigationView"

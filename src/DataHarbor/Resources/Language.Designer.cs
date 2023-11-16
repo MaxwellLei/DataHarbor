@@ -61,6 +61,177 @@ namespace DataHarbor.Resources {
         }
         
         /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string About_S_1 {
+            get {
+                return ResourceManager.GetString("About_S_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string About_S_2 {
+            get {
+                return ResourceManager.GetString("About_S_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string About_S_3 {
+            get {
+                return ResourceManager.GetString("About_S_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string About_S_4 {
+            get {
+                return ResourceManager.GetString("About_S_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string About_S_5 {
+            get {
+                return ResourceManager.GetString("About_S_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string About_Title {
+            get {
+                return ResourceManager.GetString("About_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string About_Title_D {
+            get {
+                return ResourceManager.GetString("About_Title_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string AutoClose {
+            get {
+                return ResourceManager.GetString("AutoClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string AutoClose_D {
+            get {
+                return ResourceManager.GetString("AutoClose_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Blog {
+            get {
+                return ResourceManager.GetString("Blog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Booting {
+            get {
+                return ResourceManager.GetString("Booting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Booting_D {
+            get {
+                return ResourceManager.GetString("Booting_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string CheckUpdate {
+            get {
+                return ResourceManager.GetString("CheckUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string CheckUpdate_D {
+            get {
+                return ResourceManager.GetString("CheckUpdate_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string CloseMode {
+            get {
+                return ResourceManager.GetString("CloseMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string CloseMode_D {
+            get {
+                return ResourceManager.GetString("CloseMode_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string CloseMode_S_1 {
+            get {
+                return ResourceManager.GetString("CloseMode_S_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string CloseMode_S_2 {
+            get {
+                return ResourceManager.GetString("CloseMode_S_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Data 的本地化字符串。
         /// </summary>
         internal static string Data_Page {
@@ -70,11 +241,173 @@ namespace DataHarbor.Resources {
         }
         
         /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataSet_Project {
+            get {
+                return ResourceManager.GetString("DataSet_Project", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataSet_Project_Create {
+            get {
+                return ResourceManager.GetString("DataSet_Project_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataSet_Project_D {
+            get {
+                return ResourceManager.GetString("DataSet_Project_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Exit {
+            get {
+                return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Home 的本地化字符串。
         /// </summary>
         internal static string Home_Page {
             get {
                 return ResourceManager.GetString("Home_Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Language 的本地化字符串。
+        /// </summary>
+        internal static string Languages {
+            get {
+                return ResourceManager.GetString("Languages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Languages_D {
+            get {
+                return ResourceManager.GetString("Languages_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Languages_S_enUS {
+            get {
+                return ResourceManager.GetString("Languages_S_enUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Languages_S_zhCN {
+            get {
+                return ResourceManager.GetString("Languages_S_zhCN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string MessageMode {
+            get {
+                return ResourceManager.GetString("MessageMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string MessageMode_D {
+            get {
+                return ResourceManager.GetString("MessageMode_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string MessageMode_S_1 {
+            get {
+                return ResourceManager.GetString("MessageMode_S_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string MessageMode_S_2 {
+            get {
+                return ResourceManager.GetString("MessageMode_S_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Show {
+            get {
+                return ResourceManager.GetString("Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Theme 的本地化字符串。
+        /// </summary>
+        internal static string Theme {
+            get {
+                return ResourceManager.GetString("Theme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Theme_D {
+            get {
+                return ResourceManager.GetString("Theme_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Dark 的本地化字符串。
+        /// </summary>
+        internal static string Theme_S_Dark {
+            get {
+                return ResourceManager.GetString("Theme_S_Dark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Light 的本地化字符串。
+        /// </summary>
+        internal static string Theme_S_Light {
+            get {
+                return ResourceManager.GetString("Theme_S_Light", resourceCulture);
             }
         }
     }
