@@ -20,7 +20,7 @@
     mc:Ignorable="d">
 
     <StackPanel>
-        <ui:CardExpander >
+        <ui:CardExpander>
             <ui:CardExpander.Icon>
                 <ui:SymbolIcon Symbol="DatabaseMultiple20"/>
             </ui:CardExpander.Icon>
@@ -48,7 +48,7 @@
         </ui:CardExpander>
         <ui:VirtualizingItemsControl Margin="0 5"
             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-            ItemsSource="{Binding ViewModel.Colors, Mode=OneWay}"
+            ItemsSource="{Binding ViewModel.DataSetProjects, Mode=OneWay}"
             VirtualizingPanel.CacheLengthUnit="Page">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
@@ -63,14 +63,16 @@
                             </Grid.RowDefinitions>
                             <WrapPanel>
                                 <ui:SymbolIcon Symbol="PageFit24"/>
-                                <TextBlock Text="tesx" Margin="5 0 0 0" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding ProjectName}" Margin="5 0 0 0" FontWeight="Bold"/>
                             </WrapPanel>
                             <StackPanel Grid.Row="1">
                                 <WrapPanel>
                                     <TextBlock Text="des:"/>
+                                    <TextBlock Text="{Binding ProjectDescribe}"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <TextBlock Text="datanum:"/>
+                                    <TextBlock Text="{Binding DataTotal}"/>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <TextBlock Text="updatetime:"/>
@@ -82,8 +84,11 @@
                                     <ColumnDefinition Width="0.05*"/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Button Content="Open" HorizontalAlignment="Stretch"/>
-                                <Button Content="More" Grid.Column="2" HorizontalAlignment="Stretch"/>
+                                <Button Content="Open" HorizontalAlignment="Stretch"
+                                        Command="{Binding DataContext.ViewModel.OpenDataSetProjectCommand, RelativeSource={RelativeSource AncestorType={x:Type ui:VirtualizingItemsControl}}}"/>
+                                <Button Content="Delete" Grid.Column="2" HorizontalAlignment="Stretch"
+                                        Command="{Binding DataContext.ViewModel.DeleteDataSetProjectCommand, RelativeSource={RelativeSource AncestorType={x:Type ui:VirtualizingItemsControl}}}"
+                                        CommandParameter="{Binding}"/>
                             </Grid>
                         </Grid>
                     </Border>

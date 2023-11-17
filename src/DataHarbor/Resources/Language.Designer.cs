@@ -135,6 +135,15 @@ namespace DataHarbor.Resources {
         /// <summary>
         ///   查找类似  的本地化字符串。
         /// </summary>
+        internal static string AdditionalNameAndLocation {
+            get {
+                return ResourceManager.GetString("AdditionalNameAndLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
         internal static string AutoClose {
             get {
                 return ResourceManager.GetString("AutoClose", resourceCulture);
@@ -198,6 +207,15 @@ namespace DataHarbor.Resources {
         /// <summary>
         ///   查找类似  的本地化字符串。
         /// </summary>
+        internal static string ClearQueue {
+            get {
+                return ResourceManager.GetString("ClearQueue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
         internal static string CloseMode {
             get {
                 return ResourceManager.GetString("CloseMode", resourceCulture);
@@ -228,6 +246,60 @@ namespace DataHarbor.Resources {
         internal static string CloseMode_S_2 {
             get {
                 return ResourceManager.GetString("CloseMode_S_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Column {
+            get {
+                return ResourceManager.GetString("Column", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Converted {
+            get {
+                return ResourceManager.GetString("Converted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string ConvertedFileClearQueue {
+            get {
+                return ResourceManager.GetString("ConvertedFileClearQueue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string ConvertedFileFormat {
+            get {
+                return ResourceManager.GetString("ConvertedFileFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string ConvertedFileNotification {
+            get {
+                return ResourceManager.GetString("ConvertedFileNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string ConvertedFileOpenFolder {
+            get {
+                return ResourceManager.GetString("ConvertedFileOpenFolder", resourceCulture);
             }
         }
         
@@ -270,9 +342,36 @@ namespace DataHarbor.Resources {
         /// <summary>
         ///   查找类似  的本地化字符串。
         /// </summary>
+        internal static string Default {
+            get {
+                return ResourceManager.GetString("Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DragOrClick {
+            get {
+                return ResourceManager.GetString("DragOrClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
         internal static string Exit {
             get {
                 return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string FileArrangement {
+            get {
+                return ResourceManager.GetString("FileArrangement", resourceCulture);
             }
         }
         
@@ -324,6 +423,33 @@ namespace DataHarbor.Resources {
         /// <summary>
         ///   查找类似  的本地化字符串。
         /// </summary>
+        internal static string MappingData_Page {
+            get {
+                return ResourceManager.GetString("MappingData_Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string MergeIntoOneFile1 {
+            get {
+                return ResourceManager.GetString("MergeIntoOneFile1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string MergeIntoOneFile2 {
+            get {
+                return ResourceManager.GetString("MergeIntoOneFile2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
         internal static string MessageMode {
             get {
                 return ResourceManager.GetString("MessageMode", resourceCulture);
@@ -360,6 +486,51 @@ namespace DataHarbor.Resources {
         /// <summary>
         ///   查找类似  的本地化字符串。
         /// </summary>
+        internal static string NewFileLocation {
+            get {
+                return ResourceManager.GetString("NewFileLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string NewName {
+            get {
+                return ResourceManager.GetString("NewName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string OpenConvertedFileFolder {
+            get {
+                return ResourceManager.GetString("OpenConvertedFileFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Prefix {
+            get {
+                return ResourceManager.GetString("Prefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Row {
+            get {
+                return ResourceManager.GetString("Row", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
         internal static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
@@ -372,6 +543,15 @@ namespace DataHarbor.Resources {
         internal static string Show {
             get {
                 return ResourceManager.GetString("Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string Suffix {
+            get {
+                return ResourceManager.GetString("Suffix", resourceCulture);
             }
         }
         

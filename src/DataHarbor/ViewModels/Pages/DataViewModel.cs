@@ -5,7 +5,12 @@
 
 using DataHarbor.Models;
 using DataHarbor.Services;
+using DataHarbor.ViewModels.Windows;
+using DataHarbor.Views.Pages;
+using DataHarbor.Views.Windows;
+using System.Collections.ObjectModel;
 using System.Windows.Media;
+using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
 namespace DataHarbor.ViewModels.Pages
@@ -23,8 +28,9 @@ namespace DataHarbor.ViewModels.Pages
         [ObservableProperty]
         private string _projectDescribe;
 
+        //项目实例列表
         [ObservableProperty]
-        private IEnumerable<DataColor> _colors;
+        private ObservableCollection<DataSetProject>? _dataSetProjects;
 
         public void OnNavigatedTo()
         {
@@ -36,27 +42,18 @@ namespace DataHarbor.ViewModels.Pages
 
         private void InitializeViewModel()
         {
-            var random = new Random();
-            var colorCollection = new List<DataColor>();
-
-            for (int i = 0; i < 16; i++)
-                colorCollection.Add(
-                    new DataColor
-                    {
-                        Color = new SolidColorBrush(
-                            Color.FromArgb(
-                                (byte)200,
-                                (byte)random.Next(0, 250),
-                                (byte)random.Next(0, 250),
-                                (byte)random.Next(0, 250)
-                            )
-                        )
-                    }
-                );
-
-            Colors = colorCollection;
+            ReadProjectList();
 
             _isInitialized = true;
+        }
+
+        //读取数据集项目列表
+        private void ReadProjectList()
+        {
+            Task.Run(() =>
+            {
+                DataSetProjects = DatabaseService.GetProjectTable("DataSet_Project");
+            });
         }
 
         //数据检验
@@ -70,14 +67,43 @@ namespace DataHarbor.ViewModels.Pages
             return false;
         }
 
+        //打开对应的项目
+        [RelayCommand]
+        private void OpenDataSetProject()
+        {
+            //打开ProjectDataWindow窗口
+            ProjectDataWindow projectDataWindow = new ProjectDataWindow(new ProjectDataWindowViewModel());
+            projectDataWindow.Show();
+        }
+
+        //删除数据集项目
+        [RelayCommand]
+        private void DeleteDataSetProject(object parameter)
+        {
+            DatabaseService.DeleteData("DataSet_Project", ((DataSetProject)parameter).ProjectName);
+            DataSetProjects.Remove((DataSetProject)parameter);
+            MessageService.AutoShowDialog("成功", "删除成功", ControlAppearance.Success);
+        }
+
         //创建新数据集项目
         [RelayCommand]
         private void NewDataSetProject()
         {
             if (DataCheck())
             {
-                DatabaseService.InsertData("DataSet_Project",ProjectName,ProjectDescribe,0);
-                MessageService.AutoShowDialog("成功","创建成功",ControlAppearance.Success);
+                if(DatabaseService.IsProjectExist("DataSet_Project", ProjectName))
+                {
+                    MessageService.AutoShowDialog("错误", "项目已存在", ControlAppearance.Danger);
+                }
+                else
+                {
+                    DatabaseService.InsertData("DataSet_Project", ProjectName, ProjectDescribe, 0);
+                    DatabaseService.CreateTable(ProjectName);
+                    ReadProjectList();
+                    ProjectName = "";
+                    ProjectDescribe = "";
+                    MessageService.AutoShowDialog("成功", "创建成功", ControlAppearance.Success);
+                }
             }
             else
             {

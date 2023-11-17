@@ -45,7 +45,7 @@
         <ui:NotifyIcon Grid.Row="0" FocusOnLeftClick="True"
             Icon="pack://application:,,,/Assets/wpfui-icon-256.png"
             MenuOnRightClick="True"
-            TooltipText="WPF UI">
+            TooltipText="DataHarbor">
             <ui:NotifyIcon.Menu>
                 <ContextMenu>
                     <Grid>

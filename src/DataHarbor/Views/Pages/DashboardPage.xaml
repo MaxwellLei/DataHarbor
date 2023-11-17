@@ -18,20 +18,136 @@
     mc:Ignorable="d">
 
     <Grid VerticalAlignment="Top">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-
-        <ui:Button
-            Grid.Column="0"
-            Command="{Binding ViewModel.CounterIncrementCommand, Mode=OneWay}"
-            Content="{Binding [Home_Page],Source={x:Static lg:LanguageService.Instance}}"
-            Icon="Fluent24" />
-        <TextBlock
-            Grid.Column="1"
-            Margin="12,0,0,0"
-            VerticalAlignment="Center"
-            Text="{Binding ViewModel.Counter, Mode=OneWay}" />
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ui:Image Source="/Assets/strat_pic.jpg" CornerRadius="8"/>
+        <Grid Grid.Row="1" Margin="0 20 0 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="5"/>
+                <RowDefinition/>
+                <RowDefinition Height="5"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ui:CardControl Grid.Column="0" Grid.Row="0">
+                <ui:CardControl.Icon>
+                    <ui:SymbolIcon Symbol="TableInsertColumn24"/>
+                </ui:CardControl.Icon>
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="{DynamicResource MappingDataArrangement}"/>
+                        <TextBlock Text="{DynamicResource MappingDataArrangementText}" FontSize="12"/>
+                    </StackPanel>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+            <ui:CardControl Grid.Column="2" Grid.Row="0">
+                <ui:CardControl.Icon>
+                    <ui:SymbolIcon Symbol="Rename24"/>
+                </ui:CardControl.Icon>
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="{DynamicResource BatchRename}"/>
+                        <TextBlock Text="{DynamicResource BatchRenameText}" FontSize="12"/>
+                    </StackPanel>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+            <ui:CardControl Grid.Column="4" Grid.Row="0">
+                <ui:CardControl.Icon>
+                    <ui:SymbolIcon Symbol="DocumentTableSearch24"/>
+                </ui:CardControl.Icon>
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="{DynamicResource TableExtraction}"/>
+                        <TextBlock Text="{DynamicResource TableExtractionText}" FontSize="12"/>
+                    </StackPanel>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+            <ui:CardControl Grid.Column="0" Grid.Row="2">
+                <ui:CardControl.Icon>
+                    <ui:SymbolIcon Symbol="DocumentSearch24"/>
+                </ui:CardControl.Icon>
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="{DynamicResource PaperInformationQuery}"/>
+                        <TextBlock Text="{DynamicResource PaperInformationQueryText}" FontSize="12"/>
+                    </StackPanel>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+            <ui:CardControl Grid.Column="2" Grid.Row="2">
+                <ui:CardControl.Icon>
+                    <ui:SymbolIcon Symbol="ArrowDownload24"/>
+                </ui:CardControl.Icon>
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="{DynamicResource PaperDownload}"/>
+                        <TextBlock Text="{DynamicResource PaperDownloadText}" FontSize="12"/>
+                    </StackPanel>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+            <ui:CardControl Grid.Column="4" Grid.Row="2">
+                <ui:CardControl.Icon>
+                    <ui:SymbolIcon Symbol="DocumentRibbon24"/>
+                </ui:CardControl.Icon>
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="{DynamicResource PaperPolishing}"/>
+                        <TextBlock Text="{DynamicResource PaperPolishingText}" FontSize="12"/>
+                    </StackPanel>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+            <ui:CardControl Grid.Column="0" Grid.Row="4">
+                <ui:CardControl.Icon>
+                    <ui:SymbolIcon Symbol="Timer24"/>
+                </ui:CardControl.Icon>
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="{DynamicResource Reminder}"/>
+                        <TextBlock Text="{DynamicResource ReminderText}" FontSize="12"/>
+                    </StackPanel>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+            <ui:CardControl Grid.Column="2" Grid.Row="4">
+                <ui:CardControl.Icon>
+                    <ui:SymbolIcon Symbol="Timer24"/>
+                </ui:CardControl.Icon>
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="CAJ 转 PDF"/>
+                        <TextBlock Text="Fuck Caj" FontSize="12"/>
+                    </StackPanel>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+            <ui:CardControl Grid.Column="4" Grid.Row="4">
+                <ui:CardControl.Icon>
+                    <ui:SymbolIcon Symbol="Timer24"/>
+                </ui:CardControl.Icon>
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="数据推荐"/>
+                        <TextBlock Text="推荐相关数据库，解决数据获取问题" FontSize="12"/>
+                    </StackPanel>
+                </ui:CardControl.Header>
+            </ui:CardControl>
+            <!--<ui:CardControl Grid.Column="4" Grid.Row="2">
+                <ui:CardControl.Icon>
+                    <ui:SymbolIcon Symbol="Accessibility16"/>
+                </ui:CardControl.Icon>
+                <ui:CardControl.Header>
+                    <StackPanel>
+                        <TextBlock Text="表格提取"/>
+                        <TextBlock Text="解决 PDF 表格数据提取难的问题" FontSize="12"/>
+                    </StackPanel>
+                </ui:CardControl.Header>
+            </ui:CardControl>-->
+        </Grid>
     </Grid>
 </Page>

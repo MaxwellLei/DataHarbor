@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DataHarbor.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -37,10 +39,52 @@ namespace DataHarbor.Services
             conn.Close();
         }
 
-        //查询表，并返回全部数据
-        public static List<string> SelectTable(string name)
+        //创建表
+        public static void CreateTable(string tableName)
         {
-            List<string> list = new List<string>();
+            using (var connection = GetSQLiteConnection())
+            {
+                string sql = $"CREATE TABLE IF NOT EXISTS {tableName} " +
+                             "(Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                             "Name TEXT NOT NULL, " +
+                             "UKey TEXT NOT NULL, " +
+                             "Describe TEXT, " +
+                             "WebLink TEXT, " +
+                             "FileLocation TEXT, " +
+                             "FileNum INTEGER, " +
+                             "Date DATE)";
+
+                using (var command = new SQLiteCommand(sql, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        //查询表某个值，如果存在则返回true，否则返回false
+        public static bool IsProjectExist(string name, string projectName)
+        {
+            SQLiteConnection conn = GetSQLiteConnection();
+            SQLiteCommand cmd = new SQLiteCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT * FROM " + name + " WHERE ProjectName = '" + projectName + "'";
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                conn.Close();
+                return true;
+            }
+            else
+            {
+                conn.Close();
+                return false;
+            }
+        }
+
+        //查询表，并返回全部数据
+        public static ObservableCollection<DataSetProject> GetProjectTable(string name)
+        {
+            ObservableCollection<DataSetProject> list = new ObservableCollection<DataSetProject>();
             SQLiteConnection conn = GetSQLiteConnection();
             SQLiteCommand cmd = new SQLiteCommand();
             cmd.Connection = conn;
@@ -48,21 +92,23 @@ namespace DataHarbor.Services
             SQLiteDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                list.Add(reader["ProjectName"].ToString());
-                list.Add(reader["ProjectDescribe"].ToString());
-                list.Add(reader["DataTotal"].ToString());
+                DataSetProject project = new DataSetProject();
+                project.ProjectName = reader["ProjectName"].ToString();
+                project.ProjectDescribe = reader["ProjectDescribe"].ToString();
+                project.DataTotal = Convert.ToInt32(reader["DataTotal"].ToString());
+                list.Add(project);
             }
             conn.Close();
             return list;
         }
 
         //删除数据
-        public static void DeleteData(string name, string url)
+        public static void DeleteData(string name, string projectName)
         {
             SQLiteConnection conn = GetSQLiteConnection();
             SQLiteCommand cmd = new SQLiteCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "DELETE FROM " + name + " WHERE url = '" + url + "'";
+            cmd.CommandText = "DELETE FROM " + name + " WHERE ProjectName = '" + projectName + "'";
             cmd.ExecuteNonQuery();
             conn.Close();
         }

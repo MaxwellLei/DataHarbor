@@ -20,7 +20,7 @@ namespace DataHarbor.ViewModels.Windows
         private string _applicationTitle = "DataHarbor";
 
         [ObservableProperty]
-        private ObservableCollection<object> _menuItems = new()
+        private ObservableCollection<object> _menuItems = new ()
         {
             new NavigationViewItem()
             {
@@ -28,14 +28,26 @@ namespace DataHarbor.ViewModels.Windows
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Home24 },
                 TargetPageType = typeof(Views.Pages.DashboardPage)
             },
-            //多栏
-            new NavigationViewItem(LanguageService.Instance["Data_Page"], SymbolRegular.DataHistogram24, typeof(DataPage))
+            new NavigationViewItem()
             {
-                MenuItems = new object[]
-                {
-                    new NavigationViewItem(nameof(Snackbar), typeof(DashboardPage)),
-                }   
+                Content = LanguageService.Instance["MappingData_Page"],
+                Icon = new SymbolIcon { Symbol = SymbolRegular.DataHistogram24 },
+                TargetPageType = typeof(Views.Pages.MappingDataPage)
             },
+            new NavigationViewItem()
+            {
+                Content = LanguageService.Instance["Data_Page"],
+                Icon = new SymbolIcon { Symbol = SymbolRegular.DatabaseWindow20 },
+                TargetPageType = typeof(Views.Pages.DataPage)
+            },
+            //多栏
+            //new NavigationViewItem(LanguageService.Instance["Data_Page"], SymbolRegular.DataHistogram24, typeof(DataPage))
+            //{
+            //    MenuItems = new object[]
+            //    {
+            //        new NavigationViewItem(nameof(Snackbar), typeof(DashboardPage)),
+            //    }
+            //},
         };
 
         [ObservableProperty]

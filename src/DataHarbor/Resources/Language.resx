@@ -214,4 +214,64 @@
   <data name="DataSet_Project_Create" xml:space="preserve">
     <value></value>
   </data>
+  <data name="NewName" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="DragOrClick" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="AdditionalNameAndLocation" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Prefix" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Suffix" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="NewFileLocation" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="FileArrangement" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Row" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Column" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="ConvertedFileFormat" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MergeIntoOneFile1" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MergeIntoOneFile2" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="ConvertedFileOpenFolder" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="ConvertedFileClearQueue" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="ConvertedFileNotification" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="ClearQueue" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Converted" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="OpenConvertedFileFolder" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="MappingData_Page" xml:space="preserve">
+    <value></value>
+  </data>
 </root>

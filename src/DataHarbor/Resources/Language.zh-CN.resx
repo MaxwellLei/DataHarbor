@@ -121,7 +121,7 @@
     <value>主页</value>
   </data>
   <data name="Data_Page" xml:space="preserve">
-    <value>数据</value>
+    <value>数据收集</value>
   </data>
   <data name="Theme" xml:space="preserve">
     <value>主题</value>
@@ -233,5 +233,65 @@
   </data>
   <data name="DataSet_Project_Create" xml:space="preserve">
     <value>创建数据集项目</value>
+  </data>
+  <data name="NewName" xml:space="preserve">
+    <value>新命名➡️：</value>
+  </data>
+  <data name="DragOrClick" xml:space="preserve">
+    <value>拖拽文件或者点击选择文件</value>
+  </data>
+  <data name="AdditionalNameAndLocation" xml:space="preserve">
+    <value>附加名称及其位置：</value>
+  </data>
+  <data name="Prefix" xml:space="preserve">
+    <value>前缀</value>
+  </data>
+  <data name="Suffix" xml:space="preserve">
+    <value>后缀</value>
+  </data>
+  <data name="NewFileLocation" xml:space="preserve">
+    <value>新文件存放位置：</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>默认</value>
+  </data>
+  <data name="FileArrangement" xml:space="preserve">
+    <value>文件内容排列方式：</value>
+  </data>
+  <data name="Row" xml:space="preserve">
+    <value>行</value>
+  </data>
+  <data name="Column" xml:space="preserve">
+    <value>列</value>
+  </data>
+  <data name="ConvertedFileFormat" xml:space="preserve">
+    <value>转换后文件格式：</value>
+  </data>
+  <data name="MergeIntoOneFile1" xml:space="preserve">
+    <value>合并为一个文件(同一工作簿)</value>
+  </data>
+  <data name="MergeIntoOneFile2" xml:space="preserve">
+    <value>合并为一个文件(不同工作簿)</value>
+  </data>
+  <data name="ConvertedFileOpenFolder" xml:space="preserve">
+    <value>转换完成后打开所在位置</value>
+  </data>
+  <data name="ConvertedFileClearQueue" xml:space="preserve">
+    <value>转换完成后清空转换队列</value>
+  </data>
+  <data name="ConvertedFileNotification" xml:space="preserve">
+    <value>转换完成后弹出消息通知</value>
+  </data>
+  <data name="ClearQueue" xml:space="preserve">
+    <value>清空列表</value>
+  </data>
+  <data name="Converted" xml:space="preserve">
+    <value>转换</value>
+  </data>
+  <data name="OpenConvertedFileFolder" xml:space="preserve">
+    <value>打开转换文件位置</value>
+  </data>
+  <data name="MappingData_Page" xml:space="preserve">
+    <value>Mapping数据排列</value>
   </data>
 </root>
