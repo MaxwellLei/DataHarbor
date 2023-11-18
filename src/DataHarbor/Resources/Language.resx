@@ -274,4 +274,34 @@
   <data name="MappingData_Page" xml:space="preserve">
     <value></value>
   </data>
+  <data name="DataManagementMode" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="DataManagementMode_D" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="DataManagementMode_S_1" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="DataManagementMode_S_2" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="DataLocation" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="DataLocation_D" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="DataLocation_S_1" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="DataLocation_S_2" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="DataSaveStorage" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="DataSaveStorage_D" xml:space="preserve">
+    <value></value>
+  </data>
 </root>

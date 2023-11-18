@@ -3,6 +3,7 @@
 // Copyright (C) Leszek Pomianowski and WPF UI Contributors.
 // All Rights Reserved.
 
+using DataHarbor.Helpers;
 using DataHarbor.Models;
 using DataHarbor.Services;
 using DataHarbor.ViewModels.Windows;
@@ -97,9 +98,15 @@ namespace DataHarbor.ViewModels.Pages
                 }
                 else
                 {
+                    //数据集项目列表添加新项目
                     DatabaseService.InsertData("DataSet_Project", ProjectName, ProjectDescribe, 0);
+                    //创建对于数据集项目的表
                     DatabaseService.CreateTable(ProjectName);
+                    //文件夹路径检测
+                    FileHelper.CreateFolder(FileHelper.GetRelativePath() + "\\Data\\" + ProjectName);
+                    //刷新前端列表
                     ReadProjectList();
+                    //清空输入框
                     ProjectName = "";
                     ProjectDescribe = "";
                     MessageService.AutoShowDialog("成功", "创建成功", ControlAppearance.Success);

@@ -62,12 +62,32 @@ namespace DataHarbor.Services
         }
 
         //查询表某个值，如果存在则返回true，否则返回false
-        public static bool IsProjectExist(string name, string projectName)
+        public static bool IsProjectExist(string tableName, string projectName)
         {
             SQLiteConnection conn = GetSQLiteConnection();
             SQLiteCommand cmd = new SQLiteCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT * FROM " + name + " WHERE ProjectName = '" + projectName + "'";
+            cmd.CommandText = "SELECT * FROM " + tableName + " WHERE ProjectName = '" + projectName + "'";
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                conn.Close();
+                return true;
+            }
+            else
+            {
+                conn.Close();
+                return false;
+            }
+        }
+
+        //查询表的UKey值，如果存在则返回true,否则返回false
+        public static bool IsUkeyExist(string tableName, string uKey)
+        {
+            SQLiteConnection conn = GetSQLiteConnection();
+            SQLiteCommand cmd = new SQLiteCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT * FROM " + tableName + " WHERE Ukey = '" + uKey + "'";
             SQLiteDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {

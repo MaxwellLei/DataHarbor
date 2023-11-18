@@ -315,6 +315,96 @@ namespace DataHarbor.Resources {
         /// <summary>
         ///   查找类似  的本地化字符串。
         /// </summary>
+        internal static string DataLocation {
+            get {
+                return ResourceManager.GetString("DataLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataLocation_D {
+            get {
+                return ResourceManager.GetString("DataLocation_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataLocation_S_1 {
+            get {
+                return ResourceManager.GetString("DataLocation_S_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataLocation_S_2 {
+            get {
+                return ResourceManager.GetString("DataLocation_S_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataManagementMode {
+            get {
+                return ResourceManager.GetString("DataManagementMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataManagementMode_D {
+            get {
+                return ResourceManager.GetString("DataManagementMode_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataManagementMode_S_1 {
+            get {
+                return ResourceManager.GetString("DataManagementMode_S_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataManagementMode_S_2 {
+            get {
+                return ResourceManager.GetString("DataManagementMode_S_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataSaveStorage {
+            get {
+                return ResourceManager.GetString("DataSaveStorage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataSaveStorage_D {
+            get {
+                return ResourceManager.GetString("DataSaveStorage_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
         internal static string DataSet_Project {
             get {
                 return ResourceManager.GetString("DataSet_Project", resourceCulture);

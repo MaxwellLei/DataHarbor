@@ -49,6 +49,24 @@ namespace DataHarbor.Helpers
         }
 
 
+        //获取选择的任意文件，可以选择多个文件
+        public static ObservableCollection<string> GetFiles()
+        {
+            var dialog = new Ookii.Dialogs.Wpf.VistaOpenFileDialog();
+            dialog.Multiselect = true;
+            dialog.Title = "请选择文件";
+            dialog.RestoreDirectory = true;
+            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            if ((bool)dialog.ShowDialog())
+            {
+                return new ObservableCollection<string>(dialog.FileNames);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         //传入文件路径，返回文件名称，不带后缀
         public static string GetFileName(string filePath)
         {
@@ -57,7 +75,14 @@ namespace DataHarbor.Helpers
             return fileName;
         }
 
-        //传入ObservableCollection<string>文件路径列表，将每一个文件路径转换为不带后缀的文件名称并返回新的ObservableCollection<string>文件列表
+        //传入文件路径，返回文件名称，带后缀
+        public static string GetFileNameWithExtension(string filePath)
+        {
+            string fileName = filePath.Substring(filePath.LastIndexOf('\\') + 1);
+            return fileName;
+        }
+
+        //传入文件路径列表，将每一个文件路径转换为不带后缀的文件名称并返回新的文件列表
         public static ObservableCollection<string> GetFileNames(ObservableCollection<string> filePaths)
         {
             ObservableCollection<string> fileNames = new ObservableCollection<string>();
@@ -99,6 +124,35 @@ namespace DataHarbor.Helpers
             else
             {
                 return false;
+            }
+        }
+
+        //判断传入路径的文件夹是否存在，返回bool值
+        public static bool IsFolderExist(string folderPath)
+        {
+            if (System.IO.Directory.Exists(folderPath))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //获取当前程序所在的相对路径
+        public static string GetRelativePath()
+        {
+            string path = System.IO.Directory.GetCurrentDirectory();
+            return path;
+        }
+
+        //传入文件夹路径，如果存在则什么也不做，如果不存在则生成对应的文件夹
+        public static void CreateFolder(string folderPath)
+        {
+            if (!IsFolderExist(folderPath))
+            {
+                System.IO.Directory.CreateDirectory(folderPath);
             }
         }
 

@@ -294,4 +294,34 @@
   <data name="MappingData_Page" xml:space="preserve">
     <value>Mapping数据排列</value>
   </data>
+  <data name="DataManagementMode" xml:space="preserve">
+    <value>数据管理</value>
+  </data>
+  <data name="DataManagementMode_D" xml:space="preserve">
+    <value>选择对于收集的数据文件的组织方式</value>
+  </data>
+  <data name="DataManagementMode_S_1" xml:space="preserve">
+    <value>不建立数据库</value>
+  </data>
+  <data name="DataManagementMode_S_2" xml:space="preserve">
+    <value>建立数据库</value>
+  </data>
+  <data name="DataLocation" xml:space="preserve">
+    <value>数据库位置</value>
+  </data>
+  <data name="DataLocation_D" xml:space="preserve">
+    <value>选择您想要将收集的数据文件存放位置</value>
+  </data>
+  <data name="DataLocation_S_1" xml:space="preserve">
+    <value>默认</value>
+  </data>
+  <data name="DataLocation_S_2" xml:space="preserve">
+    <value>自定义</value>
+  </data>
+  <data name="DataSaveStorage" xml:space="preserve">
+    <value>存储管理</value>
+  </data>
+  <data name="DataSaveStorage_D" xml:space="preserve">
+    <value>收集的数据是否仅保留一份</value>
+  </data>
 </root>

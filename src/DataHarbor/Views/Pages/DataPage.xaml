@@ -47,14 +47,13 @@
             </ui:CardExpander.Content>
         </ui:CardExpander>
         <ui:VirtualizingItemsControl Margin="0 5"
-            Foreground="{DynamicResource TextFillColorSecondaryBrush}"
             ItemsSource="{Binding ViewModel.DataSetProjects, Mode=OneWay}"
             VirtualizingPanel.CacheLengthUnit="Page">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Border Width="256" Height="180" Margin="3" HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch" Background="{DynamicResource ApplicationBackgroundBrush}"
-                        CornerRadius="10" Padding="15">
+                        VerticalAlignment="Stretch" Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                        CornerRadius="10" Padding="15" BorderThickness="1" BorderBrush="{DynamicResource ControlElevationBorderBrush}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -63,7 +62,7 @@
                             </Grid.RowDefinitions>
                             <WrapPanel>
                                 <ui:SymbolIcon Symbol="PageFit24"/>
-                                <TextBlock Text="{Binding ProjectName}" Margin="5 0 0 0" FontWeight="Bold"/>
+                                <ui:TextBlock Text="{Binding ProjectName}" Margin="5 0 0 0" FontWeight="Bold"/>
                             </WrapPanel>
                             <StackPanel Grid.Row="1">
                                 <WrapPanel>

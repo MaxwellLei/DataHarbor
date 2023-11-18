@@ -193,6 +193,84 @@
                 </WrapPanel>
             </ui:CardControl.Content>
         </ui:CardControl>
+        <!--数据收集-->
+        <TextBlock
+            Margin="0,24,0,10"
+            FontSize="20"
+            FontWeight="Medium"
+            Text="{Binding [Data_Page],Source={x:Static lg:LanguageService.Instance}}" />
+        <!--数据管理-->
+        <ui:CardControl Margin="0 8 0 0">
+            <ui:CardControl.Icon>
+                <ui:SymbolIcon Symbol="HomeDatabase24"/>
+            </ui:CardControl.Icon>
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock Text="{Binding [DataManagementMode],Source={x:Static lg:LanguageService.Instance}}" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding [DataManagementMode_D],Source={x:Static lg:LanguageService.Instance}}" FontSize="12"/>
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:CardControl.Content>
+                <ComboBox>
+                    <!--<i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding ViewModel.ChangePopUpModeCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>-->
+                    <ComboBoxItem Content="{Binding [DataManagementMode_S_1],Source={x:Static lg:LanguageService.Instance}}"/>
+                    <ComboBoxItem Content="{Binding [DataManagementMode_S_2],Source={x:Static lg:LanguageService.Instance}}" IsSelected="True"/>
+                </ComboBox>
+            </ui:CardControl.Content>
+        </ui:CardControl>
+        <!--数据库位置-->
+        <ui:CardControl Margin="0 8 0 0">
+            <ui:CardControl.Icon>
+                <ui:SymbolIcon Symbol="WindowLocationTarget20"/>
+            </ui:CardControl.Icon>
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock Text="{Binding [DataLocation],Source={x:Static lg:LanguageService.Instance}}" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding [DataLocation_D],Source={x:Static lg:LanguageService.Instance}}" FontSize="12"/>
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:CardControl.Content>
+                <ComboBox>
+                    <!--<i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding ViewModel.ChangePopUpModeCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>-->
+                    <ComboBoxItem Content="{Binding [DataLocation_S_1],Source={x:Static lg:LanguageService.Instance}}" IsSelected="True"/>
+                    <ComboBoxItem Content="{Binding [DataLocation_S_2],Source={x:Static lg:LanguageService.Instance}}"/>
+                </ComboBox>
+            </ui:CardControl.Content>
+        </ui:CardControl>
+        <!--存储管理-->
+        <ui:CardControl Margin="0 8 0 0">
+            <ui:CardControl.Icon>
+                <ui:SymbolIcon Symbol="Storage24"/>
+            </ui:CardControl.Icon>
+            <ui:CardControl.Header>
+                <StackPanel>
+                    <TextBlock Text="{Binding [DataSaveStorage],Source={x:Static lg:LanguageService.Instance}}" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding [DataSaveStorage_D],Source={x:Static lg:LanguageService.Instance}}" FontSize="12"/>
+                </StackPanel>
+            </ui:CardControl.Header>
+            <ui:CardControl.Content>
+                <WrapPanel>
+                    <TextBlock Text="{Binding ElementName=DataSaveStorageToggleSwitch, Path=IsChecked, Converter={StaticResource BoolToTextConverter},Mode=OneWay}"
+                               Margin="0 0 10 0"/>
+                    <ui:ToggleSwitch Name="DataSaveStorageToggleSwitch" IsChecked="True">
+                        <!--<i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding ViewModel.ChangeAutoBootingCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>-->
+                    </ui:ToggleSwitch>
+                </WrapPanel>
+            </ui:CardControl.Content>
+        </ui:CardControl>
+
         <!--关于-->
         <TextBlock
             Margin="0,24,0,10"

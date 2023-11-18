@@ -24,8 +24,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Background="{DynamicResource ApplicationBackgroundBrush}" Opacity="0.8" CornerRadius="10"
-                    AllowDrop="True" Margin="0 0 0 20" >
+        <Border Background="{DynamicResource CardBackgroundFillColorDefaultBrush}" Opacity="0.8" CornerRadius="10"
+                    AllowDrop="True" Margin="0 0 0 20" BorderThickness="1" BorderBrush="{DynamicResource ControlElevationBorderBrush}">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel MouseLeftButtonDown="Select_Button_Click" Background="Transparent">
                     <ItemsControl ItemsSource="{Binding ViewModel.FileNames,UpdateSourceTrigger=PropertyChanged}">
