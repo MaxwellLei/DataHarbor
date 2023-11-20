@@ -44,6 +44,22 @@ namespace DataHarbor.ViewModels.Pages
         [ObservableProperty]
         private int? _currentPopTime;
 
+        //数据管理模式【0，不建立数据库；1，建立数据库】
+        [ObservableProperty]
+        private int? _currentDataCollectionMode;
+
+        //数据库位置【0，默认位置；1，自定义位置】
+        [ObservableProperty]
+        private int? _currentDataStorageLoaction;
+
+        //数据库位置【自定义路径】
+        [ObservableProperty]
+        private string? _currentDataStorageLoactions;
+
+        //存储管理【0，False；1，True】
+        [ObservableProperty]
+        private int? _currentStorageMode;
+
         //软件版本号
         [ObservableProperty]
         private string _appVersion = String.Empty;
@@ -85,6 +101,18 @@ namespace DataHarbor.ViewModels.Pages
             CurrentCloseMode = Convert.ToInt32(ConfigHelper.ReadConfig("CloseMode"));
             CurrentPopUp = Convert.ToInt32(ConfigHelper.ReadConfig("NotificationMode"));
             CurrentPopTime = Convert.ToInt32(ConfigHelper.ReadConfig("NotificationTime"));
+            CurrentDataCollectionMode = Convert.ToInt32(ConfigHelper.ReadConfig("DataCollectionMode"));
+            var temp = ConfigHelper.ReadConfig("DataStorageLoaction");
+            if (temp != "0")
+            {
+                CurrentDataStorageLoaction = 1;
+                CurrentDataStorageLoactions = temp;
+            }
+            else
+            {
+                CurrentDataStorageLoactions = "自定义";
+            }
+            CurrentStorageMode = Convert.ToInt32(ConfigHelper.ReadConfig("StorageMode"));
         }
 
         //开机自动启动
@@ -188,6 +216,52 @@ namespace DataHarbor.ViewModels.Pages
                 //写入配置文件
                 ConfigHelper.WriteConfig("NotificationTime", CurrentPopTime.ToString());
             }
+        }
+
+        //数据管理模式
+        [RelayCommand]
+        private void OnChangeDataCollectionMode()
+        {
+            if (CurrentDataCollectionMode != null)
+            {
+                //写入配置文件
+                ConfigHelper.WriteConfig("DataCollectionMode", CurrentDataCollectionMode.ToString());
+            }
+        }
+
+        //数据库位置
+        [RelayCommand]
+        private void OnChangeDataStorageLoaction()
+        {
+            if (CurrentDataStorageLoaction != null)
+            {
+                if(CurrentDataStorageLoaction == 0)
+                {
+                    //默认位置
+                    ConfigHelper.WriteConfig("DataStorageLoaction", CurrentDataStorageLoaction.ToString());
+                    CurrentDataStorageLoactions = "自定义";
+                }
+                else
+                {
+                    CurrentDataStorageLoactions = FileHelper.GetFolderPath();
+                    if(CurrentDataStorageLoactions != "")
+                    {
+                        //自定义位置
+                        ConfigHelper.WriteConfig("DataStorageLoaction", CurrentDataStorageLoactions);
+                    }
+                    else
+                    {
+                        CurrentDataStorageLoaction = 0;
+                    }
+                }
+            }
+        }
+
+        //存储管理(是否留存一份)
+        [RelayCommand]
+        private void OnChangeStorageMode()
+        {
+            ConfigHelper.WriteConfig("StorageMode", CurrentStorageMode.ToString());
         }
 
         //检查更新

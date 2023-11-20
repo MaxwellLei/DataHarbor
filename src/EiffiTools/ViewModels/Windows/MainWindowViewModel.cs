@@ -17,7 +17,7 @@ namespace DataHarbor.ViewModels.Windows
     public partial class MainWindowViewModel : ObservableObject
     {
         [ObservableProperty]
-        private string _applicationTitle = "DataHarbor";
+        private string _applicationTitle = "EiffiTools";
 
         [ObservableProperty]
         private ObservableCollection<object> _menuItems = new ()

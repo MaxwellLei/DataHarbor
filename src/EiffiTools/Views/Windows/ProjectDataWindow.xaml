@@ -1,0 +1,332 @@
+﻿<ui:FluentWindow x:Class="DataHarbor.Views.Windows.ProjectDataWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataHarbor.Views.Windows"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:lg="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:helpers="clr-namespace:DataHarbor.Helpers"
+        mc:Ignorable="d"
+        MinWidth="900"
+        MinHeight="640"
+        d:DesignHeight="650"
+        d:DesignWidth="1000"
+        d:DataContext="{d:DesignInstance local:ProjectDataWindow,
+                                         IsDesignTimeCreatable=True}"
+        ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+        ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+        ExtendsContentIntoTitleBar="True"
+        WindowBackdropType="Tabbed"
+        WindowCornerPreference="Default"
+        WindowStartupLocation="CenterOwner">
+    <ui:FluentWindow.Resources>
+        <helpers:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </ui:FluentWindow.Resources>
+    <Grid>
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="DragEnter">
+                <i:InvokeCommandAction Command="{Binding ViewModel.DragingFileCommand}"/>
+            </i:EventTrigger>
+            <i:EventTrigger EventName="DragLeave">
+                <i:InvokeCommandAction Command="{Binding ViewModel.DragingOutFileCommand}"/>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.04*"/>
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar Title="{Binding ViewModel.ProjectName}" Grid.Row="0">
+            <ui:TitleBar.Icon>
+                <ui:ImageIcon Source="pack://application:,,,/Assets/wpfui-icon-256.png" />
+            </ui:TitleBar.Icon>
+        </ui:TitleBar>
+
+        <!--工具栏-->
+        <Menu Grid.Row="1" Background="Transparent" FontSize="14">
+            <ui:MenuItem Header="添加数据项" Icon="{ui:SymbolIcon DocumentSplitHint20}"
+                         Command="{Binding ViewModel.AddFileCommand, Mode=OneWay}">
+            </ui:MenuItem>
+            <ui:MenuItem Header="Edit" Icon="{ui:SymbolIcon DocumentEdit20}">
+                <MenuItem
+                    Command="{Binding ViewModel.StatusBarActionCommand, Mode=OneWay}"
+                    CommandParameter="find"
+                    Header="查找" />
+                <MenuItem
+                    Command="{Binding ViewModel.StatusBarActionCommand, Mode=OneWay}"
+                    CommandParameter="find"
+                    Header="导出" />
+            </ui:MenuItem>
+            <Separator />
+            <ui:MenuItem Header="View" Icon="{ui:SymbolIcon CalendarWeekStart24}">
+                <MenuItem Header="Zoom">
+                    <MenuItem
+                        Command="{Binding ViewModel.StatusBarActionCommand, Mode=OneWay}"
+                        CommandParameter="zoomIn"
+                        Header="Zoom in" />
+                    <MenuItem
+                        Command="{Binding ViewModel.StatusBarActionCommand, Mode=OneWay}"
+                        CommandParameter="zoomOut"
+                        Header="Zoom out" />
+                    <MenuItem
+                        Command="{Binding ViewModel.StatusBarActionCommand, Mode=OneWay}"
+                        CommandParameter="zoomRestore"
+                        Header="Restore default zoom" />
+                </MenuItem>
+                <MenuItem
+                    Command="{Binding ViewModel.StatusBarActionCommand, Mode=OneWay}"
+                    CommandParameter="statusBar"
+                    Header="Status bar"
+                    IsCheckable="True"
+                    IsChecked="{Binding ViewModel.IsWordWrapEnbaled, Mode=TwoWay}" />
+            </ui:MenuItem>
+            <Separator />
+            <ui:MenuItem Header="Help" Icon="{ui:SymbolIcon ChatHelp20}">
+                <!--<MenuItem
+                    Command="{Binding ViewModel.StatusBarActionCommand, Mode=OneWay}"
+                    CommandParameter="viewHelp"
+                    Header="View help" />
+                <MenuItem
+                    Command="{Binding ViewModel.StatusBarActionCommand, Mode=OneWay}"
+                    CommandParameter="viewFeedback"
+                    Header="Send feedback" />
+                <Separator />
+                <MenuItem
+                    Command="{Binding ViewModel.StatusBarActionCommand, Mode=OneWay}"
+                    CommandParameter="viewAbout"
+                    Header="About WPF UI" />-->
+            </ui:MenuItem>
+        </Menu>
+
+        <!--中间操作区-->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3.2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <!--左侧文件列表-->
+            <Grid Background="Transparent" AllowDrop="True">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding ViewModel.AddFileCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding ViewModel.DragFileCommand}"
+                                               PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
+                <Border Background="{DynamicResource CardBackgroundFillColorDefaultBrush}" CornerRadius="10"
+                        BorderThickness="1" BorderBrush="{DynamicResource ControlElevationBorderBrush}"
+                        Padding="0 5" Margin="8 0 0 0">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding ViewModel.AddFileCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="1" BorderBrush="{DynamicResource ControlElevationBorderBrush}"
+                                  Background="{DynamicResource CardBackgroundFillColorDefaultBrush}">
+                        <StackPanel Background="Transparent">
+                            <ItemsControl ItemsSource="{Binding ViewModel.DataItems,UpdateSourceTrigger=PropertyChanged}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <ui:CardControl Margin="5 0 4 3">
+                                            <ui:CardControl.Icon>
+                                                <ui:SymbolIcon Symbol="DocumentToolbox24"/>
+                                            </ui:CardControl.Icon>
+                                            <ui:CardControl.Header>
+                                                <StackPanel>
+                                                    <WrapPanel>
+                                                        <ui:TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                                                        <!--<ui:TextBlock Text="{Binding FileNum}" FontWeight="Bold"/>-->
+                                                    </WrapPanel>
+                                                    <ui:TextBlock Text="{Binding Describe}" TextWrapping="Wrap"
+                                                                  FontSize="12" Margin="0 0 10 0"/>
+                                                </StackPanel>
+                                            </ui:CardControl.Header>
+                                            <ui:CardControl.Content>
+                                                <WrapPanel>
+                                                    <ui:Hyperlink NavigateUri="{Binding Link}"
+                                                                  Content="Link">
+                                                        <ui:Hyperlink.Icon>
+                                                            <ui:SymbolIcon Symbol="Link24"/>
+                                                        </ui:Hyperlink.Icon>
+                                                    </ui:Hyperlink>
+                                                    <ui:Button Margin="5 0" Background="OrangeRed"
+                                                               Command="{Binding DataContext.ViewModel.DeleteDataItemCommand, RelativeSource={RelativeSource AncestorType={x:Type StackPanel}}}"
+                                                               CommandParameter="{Binding}">
+                                                        <ui:Button.Icon>
+                                                            <ui:SymbolIcon Symbol="Delete24"/>
+                                                        </ui:Button.Icon>
+                                                    </ui:Button>
+                                                    <ui:Button Margin="5 0"
+                                                               Command="{Binding DataContext.ViewModel.OpenDataItemCommand, RelativeSource={RelativeSource AncestorType={x:Type StackPanel}}}"
+                                                               CommandParameter="{Binding}">
+                                                        <ui:Button.Icon>
+                                                            <ui:SymbolIcon Symbol="Location24"/>
+                                                        </ui:Button.Icon>
+                                                    </ui:Button>
+                                                    <ui:Button Margin="5 0"
+                                                               Command="{Binding DataContext.ViewModel.EditDataItemCommand, RelativeSource={RelativeSource AncestorType={x:Type StackPanel}}}"
+                                                               CommandParameter="{Binding}">
+                                                        <ui:Button.Icon>
+                                                            <ui:SymbolIcon Symbol="Edit24"/>
+                                                        </ui:Button.Icon>
+                                                    </ui:Button>
+                                                </WrapPanel>
+
+                                            </ui:CardControl.Content>
+                                        </ui:CardControl>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+
+                <ContentPresenter x:Name="RootContentDialog"/>
+                <ui:SnackbarPresenter x:Name="SnackbarPresenter" />
+
+                <!--数据项查看器(遮罩)-->
+                <Border Background="{DynamicResource CardBackgroundFillColorDefaultBrush}" CornerRadius="10"
+                        BorderThickness="1" BorderBrush="{DynamicResource ControlElevationBorderBrush}"
+                        Padding="0 5" Margin="8 0 0 0"
+                        Visibility="{Binding ViewModel.IsDragOver, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock FontSize="16" Text="拖动到此处"/>
+                        <TextBlock FontSize="16" Text="添加新数据项" Foreground="#47e8f3" FontWeight="Bold"/>
+                    </WrapPanel>
+                </Border>
+
+            </Grid>
+            
+
+
+            <!--右侧编辑器-->
+            <Grid Grid.Column="1" Background="{DynamicResource ApplicationBackgroundBrush}" AllowDrop="True">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <i:InvokeCommandAction Command="{Binding ViewModel.AddFileInList_DragCommand}"
+                                               PassEventArgsToCommand="True"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.12*"/>
+                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.15*"/>
+                </Grid.RowDefinitions>
+                <Grid Margin="10 0">
+                    <TextBlock Text="文件列表" VerticalAlignment="Center"  FontWeight="Bold"/>
+                    <ui:Button HorizontalAlignment="Right" Command="{Binding ViewModel.AddFileInList_ClickCommand}">
+                        <ui:Button.Icon>
+                            <ui:SymbolIcon Symbol="Add24"/>
+                        </ui:Button.Icon>
+                    </ui:Button>
+                </Grid>
+                
+
+                <!--文件列表查看器-->
+                <Border Background="{DynamicResource CardBackgroundFillColorDefaultBrush}" CornerRadius="10"
+                        BorderThickness="1" BorderBrush="{DynamicResource ControlElevationBorderBrush}"
+                        Padding="4 0" Grid.Row="1" Margin="8 0">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <ItemsControl ItemsSource="{Binding ViewModel.ImportFiles}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <ui:CardControl Margin="0 3">
+                                            <ui:CardControl.Header>
+                                                <ui:TextBlock Text="{Binding}" Foreground="#009faa" 
+                                                          VerticalAlignment="Center" FontWeight="Bold"/>
+                                            </ui:CardControl.Header>
+                                            <ui:Button Background="OrangeRed" 
+                                                       Command="{Binding DataContext.ViewModel.DeleteFileInListCommand, RelativeSource={RelativeSource AncestorType={x:Type StackPanel}}}"
+                                                       CommandParameter="{Binding}">
+                                                <ui:Button.Icon>
+                                                    <ui:SymbolIcon Symbol="Delete24"/>
+                                                </ui:Button.Icon>
+                                            </ui:Button>
+
+                                        </ui:CardControl>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+
+                <!--文件列表查看器(遮罩)-->
+                <Border Background="{DynamicResource CardBackgroundFillColorDefaultBrush}" CornerRadius="10"
+                        BorderThickness="1" BorderBrush="{DynamicResource ControlElevationBorderBrush}"
+                        Padding="4 0" Grid.Row="1" Margin="8 0"
+                        Visibility="{Binding ViewModel.IsDragOver, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock FontSize="16" Text="拖动到此处"/>
+                        <TextBlock FontSize="16" Text="添加文件" Foreground="#47e8f3" FontWeight="Bold"/>
+                    </WrapPanel>
+                </Border>
+
+                    <!--属性编辑器-->
+                <Border Padding="0 10 20 10" Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.36*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="1.5*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Name:" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <ui:TextBox Grid.Column="1" VerticalAlignment="Center" 
+                                    Text="{Binding ViewModel.DataItemName}"/>
+
+                        <TextBlock Text="UKey:" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                   Grid.Row="1"/>
+                        <ui:TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" 
+                                    Text="{Binding ViewModel.DataItemUkey}"/>
+
+                        <TextBlock Text="Des:" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                   Grid.Row="2"/>
+                        <ui:TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch" TextWrapping="Wrap"
+                                    Text="{Binding ViewModel.DataItemDescription}"/>
+
+                        <TextBlock Text="Link:" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                   Grid.Row="3"/>
+                        <ui:TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"
+                                    Text="{Binding ViewModel.DataItemLink}"/>
+                    </Grid>
+                </Border>
+
+                <!--底部按钮-->
+                <Grid Grid.Row="3" Margin="10 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0.05*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="确认" Command="{Binding ViewModel.AddDataItemCommand}" 
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Content="取消" Grid.Column="2" Command="{Binding ViewModel.CancelAddDataItemCommand}"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <!--底部状态栏-->
+        <Grid Grid.Row="3">
+            <TextBlock Text="{Binding ViewModel.Message}" Margin="10 0" VerticalAlignment="Center"
+                       Foreground="#47e8f3"/>
+        </Grid>
+    </Grid>
+
+</ui:FluentWindow>

@@ -28,13 +28,29 @@ namespace DataHarbor.Services
             SQLiteConnection.CreateFile(name +".db");
         }
 
-        //插入数据
-        public static void InsertData(string tableName, string projectName, string projectDescribe,int num)
+        //插入数据集项目
+        public static void InsertDataProject(string tableName, string projectName, string projectDescribe,int num)
         {
             SQLiteConnection conn = GetSQLiteConnection();
             SQLiteCommand cmd = new SQLiteCommand();
             cmd.Connection = conn;
             cmd.CommandText = "INSERT INTO " + tableName + " (ProjectName, ProjectDescribe, DataTotal) VALUES ('" + projectName + "', '" + projectDescribe + "', '"+ num + "')";
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        //插入数据项
+        public static void InsertDataItem(string tableName, string name, string uKey, string describe, 
+                                          string link, int fileNum,DateTime dateTime)
+        {
+            SQLiteConnection conn = GetSQLiteConnection();
+            SQLiteCommand cmd = new SQLiteCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "INSERT INTO " + tableName +
+                              " (Name,UKey,Describe,WebLink,FileNum,Date) VALUES ('" +
+                              name + "', '" + uKey + "', '" + describe + "', '"+
+                              link + "', '" + fileNum + "', '" + dateTime
+                              + "')";
             cmd.ExecuteNonQuery();
             conn.Close();
         }
@@ -50,7 +66,6 @@ namespace DataHarbor.Services
                              "UKey TEXT NOT NULL, " +
                              "Describe TEXT, " +
                              "WebLink TEXT, " +
-                             "FileLocation TEXT, " +
                              "FileNum INTEGER, " +
                              "Date DATE)";
 
@@ -101,7 +116,7 @@ namespace DataHarbor.Services
             }
         }
 
-        //查询表，并返回全部数据
+        //查询项目列表，并返回全部项目
         public static ObservableCollection<DataSetProject> GetProjectTable(string name)
         {
             ObservableCollection<DataSetProject> list = new ObservableCollection<DataSetProject>();
@@ -122,17 +137,74 @@ namespace DataHarbor.Services
             return list;
         }
 
+        //查询指定的项目表，并返回全部数据项
+        public static ObservableCollection<DataItem> GetProjectData(string name)
+        {
+            ObservableCollection<DataItem> list = new ObservableCollection<DataItem>();
+            SQLiteConnection conn = GetSQLiteConnection();
+            SQLiteCommand cmd = new SQLiteCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT * FROM " + name;
+            SQLiteDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                DataItem project = new DataItem();
+                project.Name = reader["Name"].ToString();
+                project.Describe = reader["Describe"].ToString();
+                project.UKey = reader["UKey"].ToString();
+                project.Link = reader["WebLink"].ToString();
+                project.FileNum = reader["FileNum"].ToString();
+                //project.EditTime = reader["Date"];
+                list.Add(project);
+            }
+            conn.Close();
+            return list;
+        }
+
         //删除数据
-        public static void DeleteData(string name, string projectName)
+        public static void DeleteDataProject(string tableName, string projectName)
         {
             SQLiteConnection conn = GetSQLiteConnection();
             SQLiteCommand cmd = new SQLiteCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "DELETE FROM " + name + " WHERE ProjectName = '" + projectName + "'";
+            cmd.CommandText = "DELETE FROM " + tableName + " WHERE ProjectName = '" + projectName + "'";
             cmd.ExecuteNonQuery();
             conn.Close();
         }
 
+        //删除数据项
+        public static void DeleteDataItem(string tableName, string uKey)
+        {
+            SQLiteConnection conn = GetSQLiteConnection();
+            SQLiteCommand cmd = new SQLiteCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "DELETE FROM " + tableName + " WHERE UKey = '" + uKey + "'";
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        //删除表
+        public static void DeleteTable(string name)
+        {
+            SQLiteConnection conn = GetSQLiteConnection();
+            SQLiteCommand cmd = new SQLiteCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "DROP TABLE " + name;
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        //更新数据项的值
+        public static void UpdateDataItem(string tableName, string name, string uKey, string describe,
+                                                     string link, int fileNum, DateTime dateTime)
+        {
+            SQLiteConnection conn = GetSQLiteConnection();
+            SQLiteCommand cmd = new SQLiteCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "UPDATE " + tableName + " SET Name = '" + name + "', UKey = '" + uKey + "', Describe = '" + describe + "', WebLink = '" + link + "', FileNum = '" + fileNum + "', Date = '" + dateTime + "' WHERE UKey = '" + uKey + "'";
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
     }
 }

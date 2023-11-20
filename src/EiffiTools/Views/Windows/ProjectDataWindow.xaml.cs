@@ -1,4 +1,5 @@
-﻿using DataHarbor.ViewModels.Windows;
+﻿using DataHarbor.Services;
+using DataHarbor.ViewModels.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Wpf.Ui.Controls;
 
 namespace DataHarbor.Views.Windows
 {
@@ -26,6 +28,7 @@ namespace DataHarbor.Views.Windows
         {
             ViewModel = viewModel;
             DataContext = this;
+
 
             InitializeComponent();
         }

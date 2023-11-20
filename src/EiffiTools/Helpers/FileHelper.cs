@@ -140,6 +140,19 @@ namespace DataHarbor.Helpers
             }
         }
 
+        //判断传入路径的文件是否存在，返回bool值
+        public static bool IsFileExist(string filePath)
+        {
+            if (System.IO.File.Exists(filePath))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         //获取当前程序所在的相对路径
         public static string GetRelativePath()
         {
@@ -167,6 +180,65 @@ namespace DataHarbor.Helpers
             {
                 MessageService.AutoShowDialog("警告","请选择文件", Wpf.Ui.Controls.ControlAppearance.Danger);
             }
+        }
+
+        //传入文件路径string数组，复制文件到指定目录
+        public static void CopyFiles(string[] filePaths, string targetPath)
+        {
+            foreach (string filePath in filePaths)
+            {
+                var tempName = targetPath + "\\" + GetFileNameWithExtension(filePath);
+                if (!IsFileExist(tempName))
+                {
+                    System.IO.File.Copy(filePath, tempName);
+                }
+            }
+        }
+
+        //传入文件路径string数组，剪切文件到指定目录
+        public static void MoveFiles(string[] filePaths, string targetPath)
+        {
+            foreach (string filePath in filePaths)
+            {
+                var tempName = targetPath + "\\" + GetFileNameWithExtension(filePath);
+                if (!IsFileExist(tempName))
+                {
+                    System.IO.File.Move(filePath, tempName);
+                } 
+            }
+        }
+
+        //传入文件夹路径，删除文件夹及其下所有文件
+        public static void DeleteFolder(string folderPath)
+        {
+            if (IsFolderExist(folderPath))
+            {
+                System.IO.Directory.Delete(folderPath, true);
+            }
+        }
+
+        //传入文件路径，删除文件
+        public static void DeleteFile(string filePath)
+        {
+            if (IsFileExist(filePath))
+            {
+                System.IO.File.Delete(filePath);
+            }
+        }
+
+        //传入文件夹路径，返回文件夹下所有文件的路径
+        public static ObservableCollection<string> GetFiles(string folderPath)
+        {
+            ObservableCollection<string> filePaths = new ObservableCollection<string>();
+            if (IsFolderExist(folderPath))
+            {
+                string[] files = System.IO.Directory.GetFiles(folderPath);
+                foreach (string file in files)
+                {
+                    filePaths.Add(file);
+                }
+            }
+            return filePaths;
         }
     }
 }

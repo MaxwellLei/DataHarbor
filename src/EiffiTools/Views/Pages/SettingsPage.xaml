@@ -211,12 +211,12 @@
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:CardControl.Content>
-                <ComboBox>
-                    <!--<i:Interaction.Triggers>
+                <ComboBox SelectedIndex="{Binding ViewModel.CurrentDataCollectionMode}">
+                    <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding ViewModel.ChangePopUpModeCommand}" />
+                            <i:InvokeCommandAction Command="{Binding ViewModel.ChangeDataCollectionModeCommand}" />
                         </i:EventTrigger>
-                    </i:Interaction.Triggers>-->
+                    </i:Interaction.Triggers>
                     <ComboBoxItem Content="{Binding [DataManagementMode_S_1],Source={x:Static lg:LanguageService.Instance}}"/>
                     <ComboBoxItem Content="{Binding [DataManagementMode_S_2],Source={x:Static lg:LanguageService.Instance}}" IsSelected="True"/>
                 </ComboBox>
@@ -234,14 +234,14 @@
                 </StackPanel>
             </ui:CardControl.Header>
             <ui:CardControl.Content>
-                <ComboBox>
-                    <!--<i:Interaction.Triggers>
+                <ComboBox SelectedIndex="{Binding ViewModel.CurrentDataStorageLoaction}">
+                    <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding ViewModel.ChangePopUpModeCommand}" />
+                            <i:InvokeCommandAction Command="{Binding ViewModel.ChangeDataStorageLoactionCommand}" />
                         </i:EventTrigger>
-                    </i:Interaction.Triggers>-->
+                    </i:Interaction.Triggers>
                     <ComboBoxItem Content="{Binding [DataLocation_S_1],Source={x:Static lg:LanguageService.Instance}}" IsSelected="True"/>
-                    <ComboBoxItem Content="{Binding [DataLocation_S_2],Source={x:Static lg:LanguageService.Instance}}"/>
+                    <ComboBoxItem Content="{Binding ViewModel.CurrentDataStorageLoactions}"/>
                 </ComboBox>
             </ui:CardControl.Content>
         </ui:CardControl>
@@ -260,12 +260,12 @@
                 <WrapPanel>
                     <TextBlock Text="{Binding ElementName=DataSaveStorageToggleSwitch, Path=IsChecked, Converter={StaticResource BoolToTextConverter},Mode=OneWay}"
                                Margin="0 0 10 0"/>
-                    <ui:ToggleSwitch Name="DataSaveStorageToggleSwitch" IsChecked="True">
-                        <!--<i:Interaction.Triggers>
+                    <ui:ToggleSwitch Name="DataSaveStorageToggleSwitch" IsChecked="{Binding ViewModel.CurrentStorageMode}">
+                        <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding ViewModel.ChangeAutoBootingCommand}" />
+                                <i:InvokeCommandAction Command="{Binding ViewModel.ChangeStorageModeCommand}" />
                             </i:EventTrigger>
-                        </i:Interaction.Triggers>-->
+                        </i:Interaction.Triggers>
                     </ui:ToggleSwitch>
                 </WrapPanel>
             </ui:CardControl.Content>

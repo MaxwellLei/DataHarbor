@@ -13,5 +13,6 @@ namespace DataHarbor.Models
         public string UKey { get; set; }
         public string Link { get; set; }
         public string FileNum { get; set; }
+        public string EditTime { get; set; }
     }
 }

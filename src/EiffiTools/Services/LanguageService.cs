@@ -20,7 +20,7 @@ namespace DataHarbor.Services
         public LanguageService()
         {
             //获取此命名空间下Resources的Lang的资源
-            _resourceManager = new ResourceManager("DataHarbor.Resources.Language", typeof(LanguageService).Assembly);
+            _resourceManager = new ResourceManager("EiffiTools.Resources.Language", typeof(LanguageService).Assembly);
         }
         
         public string this[string name]
