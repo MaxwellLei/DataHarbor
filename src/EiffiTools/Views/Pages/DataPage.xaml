@@ -32,15 +32,22 @@
             </ui:CardExpander.Header>
             <ui:CardExpander.Content>
                 <WrapPanel>
-                    <TextBlock Text="Project Name:" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding [DataPage_Create_S1],Source={x:Static lg:LanguageService.Instance}}" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding ViewModel.ProjectName}" VerticalAlignment="Center" Margin="8 0" MinWidth="150"/>
-                    <TextBlock Text="Des:" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding [DataPage_Create_S2],Source={x:Static lg:LanguageService.Instance}}" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding ViewModel.ProjectDescribe}" VerticalAlignment="Center" Margin="8 0" MinWidth="360"/>
                     <ui:Button Content="{Binding [DataSet_Project_Create],Source={x:Static lg:LanguageService.Instance}}" 
-                           BorderThickness="0" Command="{Binding ViewModel.NewDataSetProjectCommand}"
+                               BorderThickness="0" Command="{Binding ViewModel.NewDataSetProjectCommand}"
                                VerticalAlignment="Center">
                         <ui:Button.Icon>
                             <ui:SymbolIcon Symbol="BookAdd24"/>
+                        </ui:Button.Icon>
+                    </ui:Button>
+                    <ui:Button Content="{Binding [OpenDatabaseLocation],Source={x:Static lg:LanguageService.Instance}}" 
+                               BorderThickness="0" Command="{Binding ViewModel.OpenDatabaseLocationCommand}"
+                               VerticalAlignment="Center" Margin="8 0">
+                        <ui:Button.Icon>
+                            <ui:SymbolIcon Symbol="Location24"/>
                         </ui:Button.Icon>
                     </ui:Button>
                 </WrapPanel>
@@ -66,15 +73,15 @@
                             </WrapPanel>
                             <StackPanel Grid.Row="1">
                                 <WrapPanel>
-                                    <TextBlock Text="des:"/>
+                                    <TextBlock Text="{Binding [Describe],Source={x:Static lg:LanguageService.Instance}}" TextWrapping="Wrap"/>
                                     <TextBlock Text="{Binding ProjectDescribe}"/>
                                 </WrapPanel>
                                 <WrapPanel>
-                                    <TextBlock Text="datanum:"/>
+                                    <TextBlock Text="{Binding [DataPage_Datanum],Source={x:Static lg:LanguageService.Instance}}"/>
                                     <TextBlock Text="{Binding DataTotal}"/>
                                 </WrapPanel>
                                 <WrapPanel>
-                                    <TextBlock Text="updatetime:"/>
+                                    <TextBlock Text="{Binding [DataPage_UpdateTime],Source={x:Static lg:LanguageService.Instance}}"/>
                                 </WrapPanel>
                             </StackPanel>
                             <Grid Grid.Row="2">
@@ -83,10 +90,10 @@
                                     <ColumnDefinition Width="0.05*"/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Button Content="Open" HorizontalAlignment="Stretch"
+                                <Button Content="{Binding [Open],Source={x:Static lg:LanguageService.Instance}}" HorizontalAlignment="Stretch"
                                         Command="{Binding DataContext.ViewModel.OpenDataSetProjectCommand, RelativeSource={RelativeSource AncestorType={x:Type ui:VirtualizingItemsControl}}}"
                                         CommandParameter="{Binding}"/>
-                                <Button Content="Delete" Grid.Column="2" HorizontalAlignment="Stretch"
+                                <Button Content="{Binding [Delete],Source={x:Static lg:LanguageService.Instance}}" Grid.Column="2" HorizontalAlignment="Stretch"
                                         Command="{Binding DataContext.ViewModel.DeleteDataSetProjectCommand, RelativeSource={RelativeSource AncestorType={x:Type ui:VirtualizingItemsControl}}}"
                                         CommandParameter="{Binding}"/>
                             </Grid>

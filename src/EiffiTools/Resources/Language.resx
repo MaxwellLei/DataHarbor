@@ -107,7 +107,7 @@
     <value>Theme</value>
   </data>
   <data name="Theme_D" xml:space="preserve">
-    <value></value>
+    <value>Set your theme style</value>
   </data>
   <data name="Theme_S_Light" xml:space="preserve">
     <value>Light</value>
@@ -119,189 +119,267 @@
     <value>Language</value>
   </data>
   <data name="Languages_D" xml:space="preserve">
-    <value></value>
+    <value>Change the language support of the software (some language changes require restarting the software to obtain support)</value>
   </data>
   <data name="Languages_S_zhCN" xml:space="preserve">
-    <value></value>
+    <value>Simplified Chinese</value>
   </data>
   <data name="Languages_S_enUS" xml:space="preserve">
-    <value></value>
+    <value>English (United States)</value>
   </data>
   <data name="CheckUpdate" xml:space="preserve">
-    <value></value>
+    <value>Check for updates</value>
   </data>
   <data name="CheckUpdate_D" xml:space="preserve">
-    <value></value>
+    <value>Software starts automatically checking for updates</value>
   </data>
   <data name="Booting" xml:space="preserve">
-    <value></value>
+    <value>boot</value>
   </data>
   <data name="Booting_D" xml:space="preserve">
-    <value></value>
+    <value>The software starts automatically after the computer is turned on</value>
   </data>
   <data name="CloseMode" xml:space="preserve">
-    <value></value>
+    <value>closure</value>
   </data>
   <data name="CloseMode_D" xml:space="preserve">
-    <value></value>
+    <value>Choose how to close the software</value>
   </data>
   <data name="MessageMode" xml:space="preserve">
-    <value></value>
+    <value>notify</value>
   </data>
   <data name="MessageMode_D" xml:space="preserve">
-    <value></value>
+    <value>Select software message notification method</value>
   </data>
   <data name="AutoClose" xml:space="preserve">
-    <value></value>
+    <value>automatic shutdown</value>
   </data>
   <data name="AutoClose_D" xml:space="preserve">
-    <value></value>
+    <value>Silent message notification automatic closing time</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value></value>
+    <value>about</value>
   </data>
   <data name="CloseMode_S_1" xml:space="preserve">
-    <value></value>
+    <value>Exit directly</value>
   </data>
   <data name="CloseMode_S_2" xml:space="preserve">
-    <value></value>
+    <value>Minimize to tray</value>
   </data>
   <data name="MessageMode_S_1" xml:space="preserve">
-    <value></value>
+    <value>silent notification</value>
   </data>
   <data name="MessageMode_S_2" xml:space="preserve">
-    <value></value>
+    <value>Pop-up notification</value>
   </data>
   <data name="About_Title" xml:space="preserve">
-    <value></value>
+    <value>DataHarbor</value>
   </data>
   <data name="About_Title_D" xml:space="preserve">
-    <value></value>
+    <value>Posted by SDUT Maxwell Lei</value>
   </data>
   <data name="About_S_1" xml:space="preserve">
-    <value></value>
+    <value>Dependency support</value>
   </data>
   <data name="About_S_2" xml:space="preserve">
-    <value></value>
+    <value>illustrate</value>
   </data>
   <data name="About_S_3" xml:space="preserve">
-    <value></value>
+    <value>💡If a worker wants to do his job well, he must first sharpen his tools!!!</value>
   </data>
   <data name="About_S_4" xml:space="preserve">
-    <value></value>
+    <value>If you have any questions, you can initiate Issues in the project or leave a message on my blog</value>
   </data>
   <data name="Blog" xml:space="preserve">
-    <value></value>
+    <value>Seraphine's little nest</value>
   </data>
   <data name="About_S_5" xml:space="preserve">
-    <value></value>
+    <value>Version: 0.0.0.1</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value></value>
+    <value>quit</value>
   </data>
   <data name="Show" xml:space="preserve">
-    <value></value>
+    <value>show</value>
   </data>
   <data name="Settings" xml:space="preserve">
-    <value></value>
+    <value>set up</value>
   </data>
   <data name="DataSet_Project" xml:space="preserve">
-    <value></value>
+    <value>Dataset project</value>
   </data>
   <data name="DataSet_Project_D" xml:space="preserve">
-    <value></value>
+    <value>Create, display, and manage your dataset projects</value>
   </data>
   <data name="DataSet_Project_Create" xml:space="preserve">
-    <value></value>
+    <value>Create a dataset project</value>
   </data>
   <data name="NewName" xml:space="preserve">
-    <value></value>
+    <value>New name ➡️:</value>
   </data>
   <data name="DragOrClick" xml:space="preserve">
-    <value></value>
+    <value>Drag and drop files or click to select files</value>
   </data>
   <data name="AdditionalNameAndLocation" xml:space="preserve">
-    <value></value>
+    <value>Additional names and their locations:</value>
   </data>
   <data name="Prefix" xml:space="preserve">
-    <value></value>
+    <value>prefix</value>
   </data>
   <data name="Suffix" xml:space="preserve">
-    <value></value>
+    <value>suffix</value>
   </data>
   <data name="NewFileLocation" xml:space="preserve">
-    <value></value>
+    <value>New file storage location:</value>
   </data>
   <data name="Default" xml:space="preserve">
-    <value></value>
+    <value>default</value>
   </data>
   <data name="FileArrangement" xml:space="preserve">
-    <value></value>
+    <value>File content arrangement:</value>
   </data>
   <data name="Row" xml:space="preserve">
-    <value></value>
+    <value>OK</value>
   </data>
   <data name="Column" xml:space="preserve">
-    <value></value>
+    <value>List</value>
   </data>
   <data name="ConvertedFileFormat" xml:space="preserve">
-    <value></value>
+    <value>Converted file format:</value>
   </data>
   <data name="MergeIntoOneFile1" xml:space="preserve">
-    <value></value>
+    <value>Merge into one file (same workbook)</value>
   </data>
   <data name="MergeIntoOneFile2" xml:space="preserve">
-    <value></value>
+    <value>Merge into one file (different workbooks)</value>
   </data>
   <data name="ConvertedFileOpenFolder" xml:space="preserve">
-    <value></value>
+    <value>After the conversion is completed, open the location</value>
   </data>
   <data name="ConvertedFileClearQueue" xml:space="preserve">
-    <value></value>
+    <value>Clear the conversion queue after the conversion is completed</value>
   </data>
   <data name="ConvertedFileNotification" xml:space="preserve">
-    <value></value>
+    <value>A message notification will pop up after the conversion is completed</value>
   </data>
   <data name="ClearQueue" xml:space="preserve">
-    <value></value>
+    <value>clear the list</value>
   </data>
   <data name="Converted" xml:space="preserve">
-    <value></value>
+    <value>Convert</value>
   </data>
   <data name="OpenConvertedFileFolder" xml:space="preserve">
-    <value></value>
+    <value>Open conversion file location</value>
   </data>
   <data name="MappingData_Page" xml:space="preserve">
-    <value></value>
+    <value>Mapping data arrangement</value>
   </data>
   <data name="DataManagementMode" xml:space="preserve">
-    <value></value>
+    <value>Data management</value>
   </data>
   <data name="DataManagementMode_D" xml:space="preserve">
-    <value></value>
+    <value>Choose how you want to organize your collected data files</value>
   </data>
   <data name="DataManagementMode_S_1" xml:space="preserve">
-    <value></value>
+    <value>Do not create database</value>
   </data>
   <data name="DataManagementMode_S_2" xml:space="preserve">
-    <value></value>
+    <value>build database</value>
   </data>
   <data name="DataLocation" xml:space="preserve">
-    <value></value>
+    <value>Database location</value>
   </data>
   <data name="DataLocation_D" xml:space="preserve">
-    <value></value>
+    <value>Select where you want the collected data files to be stored</value>
   </data>
   <data name="DataLocation_S_1" xml:space="preserve">
-    <value></value>
+    <value>default</value>
   </data>
   <data name="DataLocation_S_2" xml:space="preserve">
-    <value></value>
+    <value>customize</value>
   </data>
   <data name="DataSaveStorage" xml:space="preserve">
-    <value></value>
+    <value>Storage management</value>
   </data>
   <data name="DataSaveStorage_D" xml:space="preserve">
+    <value>Whether only one copy of the data collected is retained</value>
+  </data>
+  <data name="Dashboard_C1" xml:space="preserve">
+    <value>Mapping data rearrangement</value>
+  </data>
+  <data name="Dashboard_C1_D" xml:space="preserve">
+    <value>Arrange your elemental distribution measurement mapping data into the desired format</value>
+  </data>
+  <data name="Dashboard_C2" xml:space="preserve">
+    <value>Batch rename</value>
+  </data>
+  <data name="Dashboard_C2_D" xml:space="preserve">
+    <value>Batch custom format renaming</value>
+  </data>
+  <data name="Dashboard_C3" xml:space="preserve">
+    <value>Table extraction</value>
+  </data>
+  <data name="Dashboard_C3_D" xml:space="preserve">
+    <value>Provides a solution for PDF table data extraction</value>
+  </data>
+  <data name="Dashboard_C4" xml:space="preserve">
+    <value>Paper information query</value>
+  </data>
+  <data name="Dashboard_C4_D" xml:space="preserve">
+    <value>Quickly understand the paper's partitions, impact factors and other information</value>
+  </data>
+  <data name="Dashboard_C5" xml:space="preserve">
+    <value>Paper download</value>
+  </data>
+  <data name="Dashboard_C5_D" xml:space="preserve">
+    <value>Bring knowledge to everyone</value>
+  </data>
+  <data name="Dashboard_C6" xml:space="preserve">
+    <value>Paper polishing</value>
+  </data>
+  <data name="Dashboard_C6_D" xml:space="preserve">
+    <value>Polish your paper with ChatGPT</value>
+  </data>
+  <data name="Dashboard_C7" xml:space="preserve">
+    <value>reminder</value>
+  </data>
+  <data name="Dashboard_C7_D" xml:space="preserve">
+    <value>Set up scheduled notification reminders</value>
+  </data>
+  <data name="Dashboard_C8" xml:space="preserve">
+    <value>CAJ format conversion</value>
+  </data>
+  <data name="Dashboard_C8_D" xml:space="preserve">
+    <value>Fuck CAJ</value>
+  </data>
+  <data name="Dashboard_C9" xml:space="preserve">
+    <value>Data collection management</value>
+  </data>
+  <data name="Dashboard_C9_D" xml:space="preserve">
+    <value>Efficient statistics, collection and management of your data</value>
+  </data>
+  <data name="OpenDatabaseLocation" xml:space="preserve">
+    <value>Open the database location</value>
+  </data>
+  <data name="DataPage_Create_S1" xml:space="preserve">
+    <value>Project Name:</value>
+  </data>
+  <data name="DataPage_Create_S2" xml:space="preserve">
+    <value>Project Describe:</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Describe" xml:space="preserve">
+    <value>Describe:</value>
+  </data>
+  <data name="DataPage_Datanum" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="DataPage_UpdateTime" xml:space="preserve">
     <value></value>
   </data>
 </root>

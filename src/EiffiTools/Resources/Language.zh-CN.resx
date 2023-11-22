@@ -193,7 +193,7 @@
     <value>弹窗通知</value>
   </data>
   <data name="About_Title" xml:space="preserve">
-    <value>DataHarbor</value>
+    <value>EiffiTools</value>
   </data>
   <data name="About_Title_D" xml:space="preserve">
     <value>由 SDUT Maxwell Lei 发布</value>
@@ -323,5 +323,83 @@
   </data>
   <data name="DataSaveStorage_D" xml:space="preserve">
     <value>收集的数据是否仅保留一份</value>
+  </data>
+  <data name="Dashboard_C1" xml:space="preserve">
+    <value>Mapping 数据重排列</value>
+  </data>
+  <data name="Dashboard_C1_D" xml:space="preserve">
+    <value>将您的元素分布测量数据排列成希望的格式</value>
+  </data>
+  <data name="Dashboard_C2" xml:space="preserve">
+    <value>批量重命名</value>
+  </data>
+  <data name="Dashboard_C2_D" xml:space="preserve">
+    <value>批量自定义格式重命名</value>
+  </data>
+  <data name="Dashboard_C3" xml:space="preserve">
+    <value>表格提取</value>
+  </data>
+  <data name="Dashboard_C3_D" xml:space="preserve">
+    <value>提供了 PDF 表格数据提取的一种解决方案</value>
+  </data>
+  <data name="Dashboard_C4" xml:space="preserve">
+    <value>论文信息查询</value>
+  </data>
+  <data name="Dashboard_C4_D" xml:space="preserve">
+    <value>快速了解论文的分区，影响因子等信息</value>
+  </data>
+  <data name="Dashboard_C5" xml:space="preserve">
+    <value>论文下载</value>
+  </data>
+  <data name="Dashboard_C5_D" xml:space="preserve">
+    <value>将知识带给每个人</value>
+  </data>
+  <data name="Dashboard_C6" xml:space="preserve">
+    <value>论文润色</value>
+  </data>
+  <data name="Dashboard_C6_D" xml:space="preserve">
+    <value>借助 ChatGPT 润色您的论文</value>
+  </data>
+  <data name="Dashboard_C7" xml:space="preserve">
+    <value>定时提醒</value>
+  </data>
+  <data name="Dashboard_C7_D" xml:space="preserve">
+    <value>定时通知提醒，例如：久坐提醒</value>
+  </data>
+  <data name="Dashboard_C8" xml:space="preserve">
+    <value>CAJ 格式转换</value>
+  </data>
+  <data name="Dashboard_C8_D" xml:space="preserve">
+    <value>Fuck CAJ</value>
+  </data>
+  <data name="Dashboard_C9" xml:space="preserve">
+    <value>数据收集管理</value>
+  </data>
+  <data name="Dashboard_C9_D" xml:space="preserve">
+    <value>高效的统计，收集和管理你的数据</value>
+  </data>
+  <data name="OpenDatabaseLocation" xml:space="preserve">
+    <value>打开数据库所在位置</value>
+  </data>
+  <data name="DataPage_Create_S1" xml:space="preserve">
+    <value>项目名称：</value>
+  </data>
+  <data name="DataPage_Create_S2" xml:space="preserve">
+    <value>项目描述：</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Describe" xml:space="preserve">
+    <value>说明：</value>
+  </data>
+  <data name="DataPage_Datanum" xml:space="preserve">
+    <value>数据量：</value>
+  </data>
+  <data name="DataPage_UpdateTime" xml:space="preserve">
+    <value>更新时间：</value>
   </data>
 </root>

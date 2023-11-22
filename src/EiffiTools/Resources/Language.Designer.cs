@@ -61,7 +61,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 about 的本地化字符串。
         /// </summary>
         internal static string About {
             get {
@@ -70,7 +70,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Dependency support 的本地化字符串。
         /// </summary>
         internal static string About_S_1 {
             get {
@@ -79,7 +79,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 illustrate 的本地化字符串。
         /// </summary>
         internal static string About_S_2 {
             get {
@@ -88,7 +88,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 💡If a worker wants to do his job well, he must first sharpen his tools!!! 的本地化字符串。
         /// </summary>
         internal static string About_S_3 {
             get {
@@ -97,7 +97,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 If you have any questions, you can initiate Issues in the project or leave a message on my blog 的本地化字符串。
         /// </summary>
         internal static string About_S_4 {
             get {
@@ -106,7 +106,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Version: 0.0.0.1 的本地化字符串。
         /// </summary>
         internal static string About_S_5 {
             get {
@@ -115,7 +115,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 DataHarbor 的本地化字符串。
         /// </summary>
         internal static string About_Title {
             get {
@@ -124,7 +124,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Posted by SDUT Maxwell Lei 的本地化字符串。
         /// </summary>
         internal static string About_Title_D {
             get {
@@ -133,7 +133,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Additional names and their locations: 的本地化字符串。
         /// </summary>
         internal static string AdditionalNameAndLocation {
             get {
@@ -142,7 +142,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 automatic shutdown 的本地化字符串。
         /// </summary>
         internal static string AutoClose {
             get {
@@ -151,7 +151,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Silent message notification automatic closing time 的本地化字符串。
         /// </summary>
         internal static string AutoClose_D {
             get {
@@ -160,7 +160,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Seraphine&apos;s little nest 的本地化字符串。
         /// </summary>
         internal static string Blog {
             get {
@@ -169,7 +169,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 boot 的本地化字符串。
         /// </summary>
         internal static string Booting {
             get {
@@ -178,7 +178,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 The software starts automatically after the computer is turned on 的本地化字符串。
         /// </summary>
         internal static string Booting_D {
             get {
@@ -187,7 +187,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Check for updates 的本地化字符串。
         /// </summary>
         internal static string CheckUpdate {
             get {
@@ -196,7 +196,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Software starts automatically checking for updates 的本地化字符串。
         /// </summary>
         internal static string CheckUpdate_D {
             get {
@@ -205,7 +205,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 clear the list 的本地化字符串。
         /// </summary>
         internal static string ClearQueue {
             get {
@@ -214,7 +214,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 closure 的本地化字符串。
         /// </summary>
         internal static string CloseMode {
             get {
@@ -223,7 +223,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Choose how to close the software 的本地化字符串。
         /// </summary>
         internal static string CloseMode_D {
             get {
@@ -232,7 +232,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Exit directly 的本地化字符串。
         /// </summary>
         internal static string CloseMode_S_1 {
             get {
@@ -241,7 +241,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Minimize to tray 的本地化字符串。
         /// </summary>
         internal static string CloseMode_S_2 {
             get {
@@ -250,7 +250,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 List 的本地化字符串。
         /// </summary>
         internal static string Column {
             get {
@@ -259,7 +259,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Convert 的本地化字符串。
         /// </summary>
         internal static string Converted {
             get {
@@ -268,7 +268,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Clear the conversion queue after the conversion is completed 的本地化字符串。
         /// </summary>
         internal static string ConvertedFileClearQueue {
             get {
@@ -277,7 +277,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Converted file format: 的本地化字符串。
         /// </summary>
         internal static string ConvertedFileFormat {
             get {
@@ -286,7 +286,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 A message notification will pop up after the conversion is completed 的本地化字符串。
         /// </summary>
         internal static string ConvertedFileNotification {
             get {
@@ -295,11 +295,173 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 After the conversion is completed, open the location 的本地化字符串。
         /// </summary>
         internal static string ConvertedFileOpenFolder {
             get {
                 return ResourceManager.GetString("ConvertedFileOpenFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Mapping data rearrangement 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C1 {
+            get {
+                return ResourceManager.GetString("Dashboard_C1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Arrange your elemental distribution measurement mapping data into the desired format 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C1_D {
+            get {
+                return ResourceManager.GetString("Dashboard_C1_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Batch rename 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C2 {
+            get {
+                return ResourceManager.GetString("Dashboard_C2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Batch custom format renaming 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C2_D {
+            get {
+                return ResourceManager.GetString("Dashboard_C2_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Table extraction 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C3 {
+            get {
+                return ResourceManager.GetString("Dashboard_C3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Provides a solution for PDF table data extraction 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C3_D {
+            get {
+                return ResourceManager.GetString("Dashboard_C3_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Paper information query 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C4 {
+            get {
+                return ResourceManager.GetString("Dashboard_C4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Quickly understand the paper&apos;s partitions, impact factors and other information 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C4_D {
+            get {
+                return ResourceManager.GetString("Dashboard_C4_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Paper download 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C5 {
+            get {
+                return ResourceManager.GetString("Dashboard_C5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Bring knowledge to everyone 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C5_D {
+            get {
+                return ResourceManager.GetString("Dashboard_C5_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Paper polishing 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C6 {
+            get {
+                return ResourceManager.GetString("Dashboard_C6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Polish your paper with ChatGPT 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C6_D {
+            get {
+                return ResourceManager.GetString("Dashboard_C6_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 reminder 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C7 {
+            get {
+                return ResourceManager.GetString("Dashboard_C7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Set up scheduled notification reminders 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C7_D {
+            get {
+                return ResourceManager.GetString("Dashboard_C7_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 CAJ format conversion 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C8 {
+            get {
+                return ResourceManager.GetString("Dashboard_C8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Fuck CAJ 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C8_D {
+            get {
+                return ResourceManager.GetString("Dashboard_C8_D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Data collection management 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C9 {
+            get {
+                return ResourceManager.GetString("Dashboard_C9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Efficient statistics, collection and management of your data 的本地化字符串。
+        /// </summary>
+        internal static string Dashboard_C9_D {
+            get {
+                return ResourceManager.GetString("Dashboard_C9_D", resourceCulture);
             }
         }
         
@@ -313,7 +475,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Database location 的本地化字符串。
         /// </summary>
         internal static string DataLocation {
             get {
@@ -322,7 +484,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Select where you want the collected data files to be stored 的本地化字符串。
         /// </summary>
         internal static string DataLocation_D {
             get {
@@ -331,7 +493,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 default 的本地化字符串。
         /// </summary>
         internal static string DataLocation_S_1 {
             get {
@@ -340,7 +502,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 customize 的本地化字符串。
         /// </summary>
         internal static string DataLocation_S_2 {
             get {
@@ -349,7 +511,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Data management 的本地化字符串。
         /// </summary>
         internal static string DataManagementMode {
             get {
@@ -358,7 +520,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Choose how you want to organize your collected data files 的本地化字符串。
         /// </summary>
         internal static string DataManagementMode_D {
             get {
@@ -367,7 +529,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Do not create database 的本地化字符串。
         /// </summary>
         internal static string DataManagementMode_S_1 {
             get {
@@ -376,7 +538,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 build database 的本地化字符串。
         /// </summary>
         internal static string DataManagementMode_S_2 {
             get {
@@ -385,7 +547,43 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
+        ///   查找类似 Project Name: 的本地化字符串。
+        /// </summary>
+        internal static string DataPage_Create_S1 {
+            get {
+                return ResourceManager.GetString("DataPage_Create_S1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Project Describe: 的本地化字符串。
+        /// </summary>
+        internal static string DataPage_Create_S2 {
+            get {
+                return ResourceManager.GetString("DataPage_Create_S2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataPage_Datanum {
+            get {
+                return ResourceManager.GetString("DataPage_Datanum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DataPage_UpdateTime {
+            get {
+                return ResourceManager.GetString("DataPage_UpdateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Storage management 的本地化字符串。
         /// </summary>
         internal static string DataSaveStorage {
             get {
@@ -394,7 +592,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Whether only one copy of the data collected is retained 的本地化字符串。
         /// </summary>
         internal static string DataSaveStorage_D {
             get {
@@ -403,7 +601,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Dataset project 的本地化字符串。
         /// </summary>
         internal static string DataSet_Project {
             get {
@@ -412,7 +610,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Create a dataset project 的本地化字符串。
         /// </summary>
         internal static string DataSet_Project_Create {
             get {
@@ -421,7 +619,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Create, display, and manage your dataset projects 的本地化字符串。
         /// </summary>
         internal static string DataSet_Project_D {
             get {
@@ -430,7 +628,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 default 的本地化字符串。
         /// </summary>
         internal static string Default {
             get {
@@ -439,7 +637,25 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Delete 的本地化字符串。
+        /// </summary>
+        internal static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Describe: 的本地化字符串。
+        /// </summary>
+        internal static string Describe {
+            get {
+                return ResourceManager.GetString("Describe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Drag and drop files or click to select files 的本地化字符串。
         /// </summary>
         internal static string DragOrClick {
             get {
@@ -448,7 +664,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 quit 的本地化字符串。
         /// </summary>
         internal static string Exit {
             get {
@@ -457,7 +673,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 File content arrangement: 的本地化字符串。
         /// </summary>
         internal static string FileArrangement {
             get {
@@ -484,7 +700,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Change the language support of the software (some language changes require restarting the software to obtain support) 的本地化字符串。
         /// </summary>
         internal static string Languages_D {
             get {
@@ -493,7 +709,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 English (United States) 的本地化字符串。
         /// </summary>
         internal static string Languages_S_enUS {
             get {
@@ -502,7 +718,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Simplified Chinese 的本地化字符串。
         /// </summary>
         internal static string Languages_S_zhCN {
             get {
@@ -511,7 +727,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Mapping data arrangement 的本地化字符串。
         /// </summary>
         internal static string MappingData_Page {
             get {
@@ -520,7 +736,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Merge into one file (same workbook) 的本地化字符串。
         /// </summary>
         internal static string MergeIntoOneFile1 {
             get {
@@ -529,7 +745,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Merge into one file (different workbooks) 的本地化字符串。
         /// </summary>
         internal static string MergeIntoOneFile2 {
             get {
@@ -538,7 +754,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 notify 的本地化字符串。
         /// </summary>
         internal static string MessageMode {
             get {
@@ -547,7 +763,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Select software message notification method 的本地化字符串。
         /// </summary>
         internal static string MessageMode_D {
             get {
@@ -556,7 +772,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 silent notification 的本地化字符串。
         /// </summary>
         internal static string MessageMode_S_1 {
             get {
@@ -565,7 +781,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Pop-up notification 的本地化字符串。
         /// </summary>
         internal static string MessageMode_S_2 {
             get {
@@ -574,7 +790,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 New file storage location: 的本地化字符串。
         /// </summary>
         internal static string NewFileLocation {
             get {
@@ -583,7 +799,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 New name ➡️: 的本地化字符串。
         /// </summary>
         internal static string NewName {
             get {
@@ -592,7 +808,16 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Open 的本地化字符串。
+        /// </summary>
+        internal static string Open {
+            get {
+                return ResourceManager.GetString("Open", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Open conversion file location 的本地化字符串。
         /// </summary>
         internal static string OpenConvertedFileFolder {
             get {
@@ -601,7 +826,16 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Open the database location 的本地化字符串。
+        /// </summary>
+        internal static string OpenDatabaseLocation {
+            get {
+                return ResourceManager.GetString("OpenDatabaseLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 prefix 的本地化字符串。
         /// </summary>
         internal static string Prefix {
             get {
@@ -610,7 +844,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 OK 的本地化字符串。
         /// </summary>
         internal static string Row {
             get {
@@ -619,7 +853,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 set up 的本地化字符串。
         /// </summary>
         internal static string Settings {
             get {
@@ -628,7 +862,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 show 的本地化字符串。
         /// </summary>
         internal static string Show {
             get {
@@ -637,7 +871,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 suffix 的本地化字符串。
         /// </summary>
         internal static string Suffix {
             get {
@@ -655,7 +889,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似  的本地化字符串。
+        ///   查找类似 Set your theme style 的本地化字符串。
         /// </summary>
         internal static string Theme_D {
             get {

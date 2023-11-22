@@ -38,116 +38,114 @@
                 <RowDefinition Height="5"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <ui:CardControl Grid.Column="0" Grid.Row="0">
+            <ui:CardControl Grid.Column="0" Grid.Row="0" Command="{Binding ViewModel.CardClickCommand}"
+                            CommandParameter="MappingData">
                 <ui:CardControl.Icon>
                     <ui:SymbolIcon Symbol="TableInsertColumn24"/>
                 </ui:CardControl.Icon>
                 <ui:CardControl.Header>
                     <StackPanel>
-                        <TextBlock Text="{DynamicResource MappingDataArrangement}"/>
-                        <TextBlock Text="{DynamicResource MappingDataArrangementText}" FontSize="12"/>
+                        <TextBlock Text="{Binding [Dashboard_C1],Source={x:Static lg:LanguageService.Instance}}"/>
+                        <TextBlock Text="{Binding [Dashboard_C1_D],Source={x:Static lg:LanguageService.Instance}}" FontSize="12"/>
                     </StackPanel>
                 </ui:CardControl.Header>
             </ui:CardControl>
-            <ui:CardControl Grid.Column="2" Grid.Row="0">
+            <ui:CardControl Grid.Column="2" Grid.Row="0" Command="{Binding ViewModel.CardClickCommand}"
+                            CommandParameter="">
                 <ui:CardControl.Icon>
                     <ui:SymbolIcon Symbol="Rename24"/>
                 </ui:CardControl.Icon>
                 <ui:CardControl.Header>
                     <StackPanel>
-                        <TextBlock Text="{DynamicResource BatchRename}"/>
-                        <TextBlock Text="{DynamicResource BatchRenameText}" FontSize="12"/>
+                        <TextBlock Text="{Binding [Dashboard_C2],Source={x:Static lg:LanguageService.Instance}}"/>
+                        <TextBlock Text="{Binding [Dashboard_C2_D],Source={x:Static lg:LanguageService.Instance}}" FontSize="12"/>
                     </StackPanel>
                 </ui:CardControl.Header>
             </ui:CardControl>
-            <ui:CardControl Grid.Column="4" Grid.Row="0">
+            <ui:CardControl Grid.Column="4" Grid.Row="0" Command="{Binding ViewModel.CardClickCommand}"
+                            CommandParameter="">
                 <ui:CardControl.Icon>
                     <ui:SymbolIcon Symbol="DocumentTableSearch24"/>
                 </ui:CardControl.Icon>
                 <ui:CardControl.Header>
                     <StackPanel>
-                        <TextBlock Text="{DynamicResource TableExtraction}"/>
-                        <TextBlock Text="{DynamicResource TableExtractionText}" FontSize="12"/>
+                        <TextBlock Text="{Binding [Dashboard_C3],Source={x:Static lg:LanguageService.Instance}}"/>
+                        <TextBlock Text="{Binding [Dashboard_C3_D],Source={x:Static lg:LanguageService.Instance}}" FontSize="12"/>
                     </StackPanel>
                 </ui:CardControl.Header>
             </ui:CardControl>
-            <ui:CardControl Grid.Column="0" Grid.Row="2">
+            <ui:CardControl Grid.Column="0" Grid.Row="2" Command="{Binding ViewModel.CardClickCommand}"
+                            CommandParameter="">
                 <ui:CardControl.Icon>
                     <ui:SymbolIcon Symbol="DocumentSearch24"/>
                 </ui:CardControl.Icon>
                 <ui:CardControl.Header>
                     <StackPanel>
-                        <TextBlock Text="{DynamicResource PaperInformationQuery}"/>
-                        <TextBlock Text="{DynamicResource PaperInformationQueryText}" FontSize="12"/>
+                        <TextBlock Text="{Binding [Dashboard_C4],Source={x:Static lg:LanguageService.Instance}}"/>
+                        <TextBlock Text="{Binding [Dashboard_C4_D],Source={x:Static lg:LanguageService.Instance}}" FontSize="12"/>
                     </StackPanel>
                 </ui:CardControl.Header>
             </ui:CardControl>
-            <ui:CardControl Grid.Column="2" Grid.Row="2">
+            <ui:CardControl Grid.Column="2" Grid.Row="2" Command="{Binding ViewModel.CardClickCommand}"
+                            CommandParameter="">
                 <ui:CardControl.Icon>
                     <ui:SymbolIcon Symbol="ArrowDownload24"/>
                 </ui:CardControl.Icon>
                 <ui:CardControl.Header>
                     <StackPanel>
-                        <TextBlock Text="{DynamicResource PaperDownload}"/>
-                        <TextBlock Text="{DynamicResource PaperDownloadText}" FontSize="12"/>
+                        <TextBlock Text="{Binding [Dashboard_C5],Source={x:Static lg:LanguageService.Instance}}"/>
+                        <TextBlock Text="{Binding [Dashboard_C5_D],Source={x:Static lg:LanguageService.Instance}}" FontSize="12"/>
                     </StackPanel>
                 </ui:CardControl.Header>
             </ui:CardControl>
-            <ui:CardControl Grid.Column="4" Grid.Row="2">
+            <ui:CardControl Grid.Column="4" Grid.Row="2" Command="{Binding ViewModel.CardClickCommand}"
+                            CommandParameter="">
                 <ui:CardControl.Icon>
                     <ui:SymbolIcon Symbol="DocumentRibbon24"/>
                 </ui:CardControl.Icon>
                 <ui:CardControl.Header>
                     <StackPanel>
-                        <TextBlock Text="{DynamicResource PaperPolishing}"/>
-                        <TextBlock Text="{DynamicResource PaperPolishingText}" FontSize="12"/>
+                        <TextBlock Text="{Binding [Dashboard_C6],Source={x:Static lg:LanguageService.Instance}}"/>
+                        <TextBlock Text="{Binding [Dashboard_C6_D],Source={x:Static lg:LanguageService.Instance}}" FontSize="12"/>
                     </StackPanel>
                 </ui:CardControl.Header>
             </ui:CardControl>
-            <ui:CardControl Grid.Column="0" Grid.Row="4">
+            <ui:CardControl Grid.Column="0" Grid.Row="4" Command="{Binding ViewModel.CardClickCommand}"
+                            CommandParameter="">
                 <ui:CardControl.Icon>
                     <ui:SymbolIcon Symbol="Timer24"/>
                 </ui:CardControl.Icon>
                 <ui:CardControl.Header>
                     <StackPanel>
-                        <TextBlock Text="{DynamicResource Reminder}"/>
-                        <TextBlock Text="{DynamicResource ReminderText}" FontSize="12"/>
+                        <TextBlock Text="{Binding [Dashboard_C7],Source={x:Static lg:LanguageService.Instance}}"/>
+                        <TextBlock Text="{Binding [Dashboard_C7_D],Source={x:Static lg:LanguageService.Instance}}" FontSize="12"/>
                     </StackPanel>
                 </ui:CardControl.Header>
             </ui:CardControl>
-            <ui:CardControl Grid.Column="2" Grid.Row="4">
+            <ui:CardControl Grid.Column="2" Grid.Row="4" Command="{Binding ViewModel.CardClickCommand}"
+                            CommandParameter="">
                 <ui:CardControl.Icon>
-                    <ui:SymbolIcon Symbol="Timer24"/>
+                    <ui:SymbolIcon Symbol="DocumentPdf24"/>
                 </ui:CardControl.Icon>
                 <ui:CardControl.Header>
                     <StackPanel>
-                        <TextBlock Text="CAJ 转 PDF"/>
-                        <TextBlock Text="Fuck Caj" FontSize="12"/>
+                        <TextBlock Text="{Binding [Dashboard_C8],Source={x:Static lg:LanguageService.Instance}}"/>
+                        <TextBlock Text="{Binding [Dashboard_C8_D],Source={x:Static lg:LanguageService.Instance}}" FontSize="12"/>
                     </StackPanel>
                 </ui:CardControl.Header>
             </ui:CardControl>
-            <ui:CardControl Grid.Column="4" Grid.Row="4">
+            <ui:CardControl Grid.Column="4" Grid.Row="4" Command="{Binding ViewModel.CardClickCommand}"
+                            CommandParameter="Data">
                 <ui:CardControl.Icon>
-                    <ui:SymbolIcon Symbol="Timer24"/>
+                    <ui:SymbolIcon Symbol="DatabaseMultiple20"/>
                 </ui:CardControl.Icon>
                 <ui:CardControl.Header>
                     <StackPanel>
-                        <TextBlock Text="数据推荐"/>
-                        <TextBlock Text="推荐相关数据库，解决数据获取问题" FontSize="12"/>
+                        <TextBlock Text="{Binding [Dashboard_C9],Source={x:Static lg:LanguageService.Instance}}"/>
+                        <TextBlock Text="{Binding [Dashboard_C9_D],Source={x:Static lg:LanguageService.Instance}}" FontSize="12"/>
                     </StackPanel>
                 </ui:CardControl.Header>
             </ui:CardControl>
-            <!--<ui:CardControl Grid.Column="4" Grid.Row="2">
-                <ui:CardControl.Icon>
-                    <ui:SymbolIcon Symbol="Accessibility16"/>
-                </ui:CardControl.Icon>
-                <ui:CardControl.Header>
-                    <StackPanel>
-                        <TextBlock Text="表格提取"/>
-                        <TextBlock Text="解决 PDF 表格数据提取难的问题" FontSize="12"/>
-                    </StackPanel>
-                </ui:CardControl.Header>
-            </ui:CardControl>-->
         </Grid>
     </Grid>
 </Page>

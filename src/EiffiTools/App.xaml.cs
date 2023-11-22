@@ -36,6 +36,8 @@ namespace DataHarbor
             {
                 services.AddHostedService<ApplicationHostService>();
 
+                
+
                 services.AddSingleton<MainWindow>();
                 services.AddSingleton<MainWindowViewModel>();
                 services.AddSingleton<ProjectDataWindow>();
@@ -70,12 +72,13 @@ namespace DataHarbor
         /// </summary>
         private void OnStartup(object sender, StartupEventArgs e)
         {
-            Init();
+            Init_Language();
             _host.Start();
+            Init_Theme();
         }
 
-        //初始化——更改语言
-        private void Init()
+        //初始化——更改语言，设置主题
+        private void Init_Language()
         {
             var temp = ConfigHelper.ReadConfig("Language");
             if (temp != null)
@@ -88,6 +91,24 @@ namespace DataHarbor
                 else
                 {
                     LanguageService.Instance.ChangeLanguage(new CultureInfo("en-US"));
+                }
+            }
+        }
+
+        //初始化——设置主题
+        private void Init_Theme()
+        {
+            //设置主题
+            var theme = ConfigHelper.ReadConfig("Theme");
+            if (theme != null)
+            {
+                if (theme == "0")
+                {
+                    Wpf.Ui.Appearance.Theme.Apply(Wpf.Ui.Appearance.ThemeType.Light);
+                }
+                else
+                {
+                    Wpf.Ui.Appearance.Theme.Apply(Wpf.Ui.Appearance.ThemeType.Dark);
                 }
             }
         }

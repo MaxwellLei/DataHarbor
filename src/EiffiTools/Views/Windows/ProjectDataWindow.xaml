@@ -38,7 +38,6 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="0.04*"/>
         </Grid.RowDefinitions>
 
         <ui:TitleBar Title="{Binding ViewModel.ProjectName}" Grid.Row="0">
@@ -112,6 +111,10 @@
             
             <!--左侧文件列表-->
             <Grid Background="Transparent" AllowDrop="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
                         <i:InvokeCommandAction Command="{Binding ViewModel.AddFileCommand}"/>
@@ -190,8 +193,14 @@
                     </ScrollViewer>
                 </Border>
 
-                <ContentPresenter x:Name="RootContentDialog"/>
-                <ui:SnackbarPresenter x:Name="SnackbarPresenter" />
+                <!--底部状态栏-->
+                <ui:InfoBar Grid.Row="1" Title="{Binding ViewModel.Title}" Message="{Binding ViewModel.Message}"
+                    IsOpen="{Binding ViewModel.IsInfoBarOpen,Mode=TwoWay}" IsClosable="False"
+                    Severity="{Binding ViewModel.InfoBarSeverity}" Margin="8 5 0 10">
+                    <WrapPanel>
+                        <ui:Button Content="123"/>
+                    </WrapPanel>
+                </ui:InfoBar>
 
                 <!--数据项查看器(遮罩)-->
                 <Border Background="{DynamicResource CardBackgroundFillColorDefaultBrush}" CornerRadius="10"
@@ -209,7 +218,8 @@
 
 
             <!--右侧编辑器-->
-            <Grid Grid.Column="1" Background="{DynamicResource ApplicationBackgroundBrush}" AllowDrop="True">
+            <Grid Grid.Column="1" Background="{DynamicResource ApplicationBackgroundBrush}" AllowDrop="True"
+                  Margin="0 0 0 10">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Drop">
                         <i:InvokeCommandAction Command="{Binding ViewModel.AddFileInList_DragCommand}"
@@ -320,13 +330,20 @@
                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Grid>
             </Grid>
+
+            
         </Grid>
 
-        <!--底部状态栏-->
-        <Grid Grid.Row="3">
-            <TextBlock Text="{Binding ViewModel.Message}" Margin="10 0" VerticalAlignment="Center"
-                       Foreground="#47e8f3"/>
-        </Grid>
+        <Border Grid.Row="2" Background="{DynamicResource ApplicationBackgroundBrush}" Margin=" 10 0 8 10"
+                Opacity="0.9" CornerRadius="10" BorderThickness="1" BorderBrush="{DynamicResource ControlElevationBorderBrush}"
+                Visibility="{Binding ViewModel.IsCreateDataItem, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ui:ProgressRing IsIndeterminate="True"/>
+                <TextBlock Text="{Binding ViewModel.InfoText}" HorizontalAlignment="Center" Margin="0 10"/>
+            </StackPanel>
+        </Border>
+
+
     </Grid>
 
 </ui:FluentWindow>

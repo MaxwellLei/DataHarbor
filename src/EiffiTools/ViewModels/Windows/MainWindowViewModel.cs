@@ -31,7 +31,7 @@ namespace DataHarbor.ViewModels.Windows
             new NavigationViewItem()
             {
                 Content = LanguageService.Instance["MappingData_Page"],
-                Icon = new SymbolIcon { Symbol = SymbolRegular.DataHistogram24 },
+                Icon = new SymbolIcon { Symbol = SymbolRegular.TableInsertColumn24 },
                 TargetPageType = typeof(Views.Pages.MappingDataPage)
             },
             new NavigationViewItem()

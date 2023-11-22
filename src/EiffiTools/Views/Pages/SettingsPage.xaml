@@ -217,7 +217,7 @@
                             <i:InvokeCommandAction Command="{Binding ViewModel.ChangeDataCollectionModeCommand}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
-                    <ComboBoxItem Content="{Binding [DataManagementMode_S_1],Source={x:Static lg:LanguageService.Instance}}"/>
+                    <!--<ComboBoxItem Content="{Binding [DataManagementMode_S_1],Source={x:Static lg:LanguageService.Instance}}"/>-->
                     <ComboBoxItem Content="{Binding [DataManagementMode_S_2],Source={x:Static lg:LanguageService.Instance}}" IsSelected="True"/>
                 </ComboBox>
             </ui:CardControl.Content>
@@ -241,7 +241,7 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                     <ComboBoxItem Content="{Binding [DataLocation_S_1],Source={x:Static lg:LanguageService.Instance}}" IsSelected="True"/>
-                    <ComboBoxItem Content="{Binding ViewModel.CurrentDataStorageLoactions}"/>
+                    <!--<ComboBoxItem Content="{Binding ViewModel.CurrentDataStorageLoactions}"/>-->
                 </ComboBox>
             </ui:CardControl.Content>
         </ui:CardControl>
@@ -299,11 +299,13 @@
                     <StackPanel>
                         <TextBlock Text="{Binding [About_S_1],Source={x:Static lg:LanguageService.Instance}}" Margin="0 5"/>
                         <WrapPanel>
-                            <ui:Hyperlink Content="WPF-UI" NavigateUri=""/>
-                            <ui:Hyperlink Content="CommunityToolkit.Mvvm"/>
-                            <ui:Hyperlink Content="SQLite"/>
-                            <ui:Hyperlink Content="Microsoft.Extensions.Hosting"/>
-                            <ui:Hyperlink Content="Microsoft.Xaml.Behaviors.Wpf"/>
+                            <ui:Hyperlink Content="WPF-UI" NavigateUri="https://wpfui.lepo.co/index.html"/>
+                            <ui:Hyperlink Content="CommunityToolkit.Mvvm" NavigateUri="https://www.nuget.org/packages/CommunityToolkit.Mvvm"/>
+                            <ui:Hyperlink Content="SQLite" NavigateUri="https://www.sqlite.org/index.html"/>
+                            <ui:Hyperlink Content="EPPlus" NavigateUri="https://www.epplussoftware.com/"/>
+                            <ui:Hyperlink Content="Ookii.Dialogs.Wpf" NavigateUri="https://www.ookii.org/software/dialogs/"/>
+                            <ui:Hyperlink Content="Microsoft.Extensions.Hosting" NavigateUri="https://www.nuget.org/packages/Microsoft.Extensions.Hosting/"/>
+                            <ui:Hyperlink Content="Microsoft.Xaml.Behaviors.Wpf" NavigateUri="https://www.nuget.org/packages/Microsoft.Xaml.Behaviors.Wpf"/>
                         </WrapPanel>
                     </StackPanel>
                     <StackPanel>
@@ -320,32 +322,5 @@
                 </StackPanel>
             </ui:CardExpander.Content>
         </ui:CardExpander>
-
-        <!--<TextBlock
-            FontSize="20"
-            FontWeight="Medium"
-            Text="Personalization" />
-        <TextBlock Margin="0,12,0,0" Text="Theme" />
-        <RadioButton
-            Margin="0,12,0,0"
-            Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}"
-            CommandParameter="theme_light"
-            Content="Light"
-            GroupName="themeSelect"
-            IsChecked="{Binding ViewModel.CurrentTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}" />
-        <RadioButton
-            Margin="0,8,0,0"
-            Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}"
-            CommandParameter="theme_dark"
-            Content="Dark"
-            GroupName="themeSelect"
-            IsChecked="{Binding ViewModel.CurrentTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}" />
-
-        <TextBlock
-            Margin="0,24,0,0"
-            FontSize="20"
-            FontWeight="Medium"
-            Text="About DataHarbor" />
-        <TextBlock Margin="0,12,0,0" Text="{Binding ViewModel.AppVersion, Mode=OneWay}" />-->
     </StackPanel>
 </Page>

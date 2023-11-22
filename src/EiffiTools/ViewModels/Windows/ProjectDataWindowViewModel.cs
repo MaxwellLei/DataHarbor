@@ -21,6 +21,13 @@ namespace DataHarbor.ViewModels.Windows
         //数据库位置
         private string _projectDataLocation = string.Empty;
 
+        //遮罩文本
+        [ObservableProperty]
+        private string _infoText;
+
+        //是否创建数据项中
+        [ObservableProperty]
+        private bool _isCreateDataItem;
 
         //是否拖动
         [ObservableProperty]
@@ -55,9 +62,21 @@ namespace DataHarbor.ViewModels.Windows
         [ObservableProperty]
         private string _dataItemLink;
 
+        //状态栏标题
+        [ObservableProperty]
+        private string _title;
+
         //状态栏消息
         [ObservableProperty]
         private string _message;
+
+        //状态栏是否开启
+        [ObservableProperty]
+        private bool _isInfoBarOpen;
+
+        //状态栏类型
+        [ObservableProperty]
+        private InfoBarSeverity _infoBarSeverity;
 
         public ProjectDataWindowViewModel(string projectName)
         {
@@ -68,12 +87,22 @@ namespace DataHarbor.ViewModels.Windows
             //获取数据库位置
             _projectDataLocation = GetProjectDataLocation();
             IsDragOver = false;
+            IsCreateDataItem = false;
         }
 
         //状态栏消息通知
-        private void SendMessage(string message)
+        private void SendMessage(string title,string message,InfoBarSeverity? infoBarSeverity)
         {
             Message = message;
+            Title = title;
+            InfoBarSeverity = infoBarSeverity ?? InfoBarSeverity.Informational;
+            IsInfoBarOpen = true;
+            Task.Run(() =>
+            {
+                Thread.Sleep(3500);
+                IsInfoBarOpen = false;
+            });
+            
         }
 
         //获取数据库的位置
@@ -109,25 +138,25 @@ namespace DataHarbor.ViewModels.Windows
         {
             if(DataItemName ==null || DataItemUkey == null)
             {
-                MessageService.AutoShowDialog("错误", "请填写数据项目名称和Ukey", ControlAppearance.Danger);
+                SendMessage("错误", "请填写数据项目名称和 Ukey", InfoBarSeverity.Error);
                 return false;
             }
             //空值检测
             if(DataItemName == "" || DataItemUkey == "" && ImportFiles == null)
             {
-                MessageService.AutoShowDialog("错误", "请填写数据项目名称和Ukey", ControlAppearance.Danger);
+                SendMessage("错误", "请填写数据项目名称和 Ukey", InfoBarSeverity.Error);
                 return false;
             }
             //空文件检测
             if (ImportFiles == null)
             {
-                MessageService.AutoShowDialog("错误", "请填写添加数据文件", ControlAppearance.Danger);
+                SendMessage("错误", "请添加添加数据文件", InfoBarSeverity.Error);
                 return false;
             }
             //唯一值检测
             if (DatabaseService.IsUkeyExist(_projectName, DataItemUkey))
             {
-                MessageService.AutoShowDialog("错误", "该数据Ukey已存在", ControlAppearance.Danger);
+                SendMessage("错误", "该数据Ukey已存在", InfoBarSeverity.Error);
                 return false;
             }
             return true;
@@ -138,7 +167,10 @@ namespace DataHarbor.ViewModels.Windows
         {
             Task.Run(() =>
             {
+                IsCreateDataItem = true;
+                InfoText = "加载中...";
                 DataItems = DatabaseService.GetProjectData(_projectName);
+                IsCreateDataItem = false;
             });
         }
 
@@ -214,25 +246,14 @@ namespace DataHarbor.ViewModels.Windows
         [RelayCommand]
         private void AddDataItem()
         {
-            if (_isEdit)
+            IsCreateDataItem = true;
+            InfoText = "添加中....";
+            Task.Run(() =>
             {
-                DatabaseService.UpdateDataItem(_projectName, DataItemName, DataItemUkey,
-                            DataItemDescription, DataItemLink, ImportFiles.Length, DateTime.Now);
-                _isEdit = false;
-                //存储数据文件
-                SaveDataFiles();
-                //刷新前端列表
-                ReadDataItems();
-                //清空输入
-                ClearInput();
-            }
-            else
-            {
-                //检查输入是否完整
-                if (CheckInput())
+                if (_isEdit)
                 {
-                    DatabaseService.InsertDataItem(_projectName, DataItemName, DataItemUkey,
-                        DataItemDescription, DataItemLink, ImportFiles.Length, DateTime.Now);
+                    DatabaseService.UpdateDataItem(_projectName, DataItemName, DataItemUkey,
+                                DataItemDescription, DataItemLink, ImportFiles.Length, DateTime.Now);
                     _isEdit = false;
                     //存储数据文件
                     SaveDataFiles();
@@ -240,8 +261,27 @@ namespace DataHarbor.ViewModels.Windows
                     ReadDataItems();
                     //清空输入
                     ClearInput();
+                    SendMessage("成功", "修改数据项成功", InfoBarSeverity.Success);
                 }
-            }
+                else
+                {
+                    //检查输入是否完整
+                    if (CheckInput())
+                    {
+                        DatabaseService.InsertDataItem(_projectName, DataItemName, DataItemUkey,
+                            DataItemDescription, DataItemLink, ImportFiles.Length, DateTime.Now);
+                        _isEdit = false;
+                        //存储数据文件
+                        SaveDataFiles();
+                        //刷新前端列表
+                        ReadDataItems();
+                        //清空输入
+                        ClearInput();
+                        SendMessage("成功", "添加数据项成功", InfoBarSeverity.Success);
+                    }
+                }
+                IsCreateDataItem = false;
+            });
 
         }
 
@@ -251,7 +291,7 @@ namespace DataHarbor.ViewModels.Windows
         {
             _isEdit = false;
             ClearInput();
-            SendMessage("取消成功");
+            SendMessage("提示：","取消成功",null);
         }
 
         //删除数据项目
@@ -272,7 +312,7 @@ namespace DataHarbor.ViewModels.Windows
                 {
                     ClearInput();
                 }
-            SendMessage("删除数据项成功");
+                SendMessage("成功","删除数据项成功",InfoBarSeverity.Success);
             //}
         }
 
@@ -283,6 +323,7 @@ namespace DataHarbor.ViewModels.Windows
             //获取数据项文件夹
             var tempLocation = _projectDataLocation + ((DataItem)parameter).UKey;
             FileHelper.OpenFolder(tempLocation);
+            SendMessage("成功", "打开文件所在位置成功", InfoBarSeverity.Success);
         }
 
         //编辑数据项目
@@ -327,7 +368,7 @@ namespace DataHarbor.ViewModels.Windows
             }
             ImportFiles = tempFiles;
             _importFilesC = tempFilesC;
-            SendMessage("删除文件成功");
+            SendMessage("成功", "删除数据项成功", InfoBarSeverity.Success);
         }
 
         //添加文件列表文件

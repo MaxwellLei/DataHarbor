@@ -64,12 +64,12 @@ namespace DataHarbor.ViewModels.Pages
             if (ConfigHelper.ReadConfig("DataStorageLoaction") == "0")
             {
                 //获取数据项文件夹
-                tempLocation = FileHelper.GetRelativePath() + "\\Data\\" + _projectName + "\\";
+                tempLocation = FileHelper.GetRelativePath() + "\\Data\\" + _projectName;
             }
             else
             {
                 //获取数据项文件夹
-                tempLocation = ConfigHelper.ReadConfig("DataStorageLoaction") + "\\Data\\" + _projectName + "\\";
+                tempLocation = ConfigHelper.ReadConfig("DataStorageLoaction") + "\\Data\\" + _projectName;
             }
             return tempLocation;
         }
@@ -98,6 +98,13 @@ namespace DataHarbor.ViewModels.Pages
             return true;
         }
 
+        //打开数据库所在的位置
+        [RelayCommand]
+        private void OpenDatabaseLocation()
+        {
+            FileHelper.OpenFolder(GetProjectDataLocation());
+        }
+
         //打开对应的项目
         [RelayCommand]
         private void OpenDataSetProject(object parameter)
@@ -122,7 +129,7 @@ namespace DataHarbor.ViewModels.Pages
                 //删除对应的数据集项目表
                 DatabaseService.DeleteTable(((DataSetProject)parameter).ProjectName);
                 //删除项目文件夹
-                FileHelper.DeleteFolder(GetProjectDataLocation() + ((DataSetProject)parameter).ProjectName);
+                FileHelper.DeleteFolder(GetProjectDataLocation() + "\\" + ((DataSetProject)parameter).ProjectName);
                 MessageService.AutoShowDialog("成功", "删除成功", ControlAppearance.Success);
             }
         }
