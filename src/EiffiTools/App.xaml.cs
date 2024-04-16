@@ -52,6 +52,8 @@ namespace DataHarbor
                 services.AddSingleton<MappingDataViewModel>();
                 services.AddSingleton<DataPage>();
                 services.AddSingleton<DataViewModel>();
+                services.AddSingleton<DocumentCheckPage>();
+                services.AddSingleton<DocumentCheckViewModel>();
                 services.AddSingleton<SettingsPage>();
                 services.AddSingleton<SettingsViewModel>();
             }).Build();

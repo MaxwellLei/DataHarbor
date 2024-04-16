@@ -248,6 +248,12 @@ namespace DataHarbor.ViewModels.Windows
         {
             IsCreateDataItem = true;
             InfoText = "添加中....";
+            if (DataItemUkey.Contains("/"))
+            {
+                SendMessage("错误", "Ukey不可包含字符:/", InfoBarSeverity.Warning);
+                IsCreateDataItem = false;
+                return;
+            }
             Task.Run(() =>
             {
                 if (_isEdit)
@@ -383,6 +389,10 @@ namespace DataHarbor.ViewModels.Windows
                     string[] combined = _importFilesC.Concat(tempFiles.ToArray()).ToArray();
                     HandleImportFiles(combined);
                 }
+            }
+            else
+            {
+                SendMessage("消息", "请先选中对应数据项再添加文件", InfoBarSeverity.Informational);
             }
         }
 

@@ -28,7 +28,7 @@
                     AllowDrop="True" Margin="0 0 0 20" BorderThickness="1" BorderBrush="{DynamicResource ControlElevationBorderBrush}">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel MouseLeftButtonDown="Select_Button_Click" Background="Transparent">
-                    <ItemsControl ItemsSource="{Binding ViewModel.FileNames,UpdateSourceTrigger=PropertyChanged}">
+                    <ItemsControl MouseLeftButtonDown="ItemsControl_MouseLeftButtonDown" ItemsSource="{Binding ViewModel.FileNames,UpdateSourceTrigger=PropertyChanged}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <ui:Card Margin="4 2">
@@ -129,22 +129,10 @@
                             </ui:Button.Icon>
                         </ui:Button>
                         <ui:Flyout Placement="Mouse" IsOpen="{Binding ElementName=info, Path=IsMouseOver}">
-                            <ui:InfoBar Title="注意" Message="启用后重命名相关设置将失效" Severity="Warning"
+                            <ui:InfoBar Title="注意" Message="启用后重命名设定将失效,默认文件名：MergeFile" Severity="Warning"
                                         IsOpen="True"/>
                         </ui:Flyout>
                     </WrapPanel>
-                    <!--<WrapPanel Margin="0 5">
-                        <CheckBox Content="{DynamicResource MergeIntoOneFile2}" IsChecked="{Binding ViewModel.IsOneFile}"/>
-                        <ui:Button Name="info"  BorderBrush="Transparent" Background="Transparent">
-                            <ui:Button.Icon>
-                                <ui:SymbolIcon Symbol="ChatHelp24"/>
-                            </ui:Button.Icon>
-                        </ui:Button>
-                        <ui:Flyout Placement="Mouse" IsOpen="{Binding ElementName=info, Path=IsMouseOver}">
-                            <ui:InfoBar Title="注意" Message="启用该设置后其他设置将失效" Severity="Warning"
-                                        IsOpen="True"/>
-                        </ui:Flyout>
-                    </WrapPanel>-->
                     <WrapPanel Margin="0 5">
                         <CheckBox Content="{Binding [ConvertedFileOpenFolder],Source={x:Static lg:LanguageService.Instance}}" IsChecked="{Binding ViewModel.IsOpenFolder}"/>
                     </WrapPanel>

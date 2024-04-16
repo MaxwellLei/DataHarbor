@@ -655,6 +655,15 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
+        ///   查找类似  的本地化字符串。
+        /// </summary>
+        internal static string DocumentCheck_Page {
+            get {
+                return ResourceManager.GetString("DocumentCheck_Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Drag and drop files or click to select files 的本地化字符串。
         /// </summary>
         internal static string DragOrClick {
@@ -718,7 +727,7 @@ namespace EiffiTools.Resources {
         }
         
         /// <summary>
-        ///   查找类似 Simplified Chinese 的本地化字符串。
+        ///   查找类似 简体中文 的本地化字符串。
         /// </summary>
         internal static string Languages_S_zhCN {
             get {

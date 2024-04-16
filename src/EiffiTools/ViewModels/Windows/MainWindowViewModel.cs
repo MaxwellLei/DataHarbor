@@ -40,6 +40,12 @@ namespace DataHarbor.ViewModels.Windows
                 Icon = new SymbolIcon { Symbol = SymbolRegular.DatabaseWindow20 },
                 TargetPageType = typeof(Views.Pages.DataPage)
             },
+            new NavigationViewItem()
+            {
+                Content = LanguageService.Instance["DocumentCheck_Page"],
+                Icon = new SymbolIcon { Symbol = SymbolRegular.DocumentTableSearch24 },
+                TargetPageType = typeof(Views.Pages.DocumentCheckPage)
+            },
             //多栏
             //new NavigationViewItem(LanguageService.Instance["Data_Page"], SymbolRegular.DataHistogram24, typeof(DataPage))
             //{

@@ -13,6 +13,7 @@ using Wpf.Ui.Controls;
 using System.Reflection.Metadata.Ecma335;
 using DataHarbor.Services;
 using DataHarbor.Helpers;
+using OfficeOpenXml.Style;
 
 namespace DataHarbor.ViewModels.Pages
 {
@@ -120,6 +121,7 @@ namespace DataHarbor.ViewModels.Pages
         {
             // 设置 EPPlus 的 LicenseContext
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            _isInitialized = true;
 
             SelectedFiles = new ObservableCollection<string>();
             FileNames = new ObservableCollection<MappingFile>();
@@ -128,25 +130,10 @@ namespace DataHarbor.ViewModels.Pages
         //设定新文件存放文件夹
         public void SetCustomFilePath()
         {
-            if (TempIndex == "1")
-            {
-                string folderPath = FileHelper.GetFolderPath();
-                if (folderPath == "")
-                {
-                    TempIndex = "0";
-                }
-                else
-                {
-                    customFilePath = folderPath;
-                }
-            }
-            else
-            {
-                customFilePath = "自定义";
-            }
+            customFilePath = TempIndex == "1" ? FileHelper.GetFolderPath() : "自定义";
         }
 
-        //读取文本以,分割成每一个然后解析成字符串列表
+        //读取文本以,分割成每一个然后解析成字符串列表【屎山代码】
         private ObservableCollection<string> ReadText(string filePath)
         {
             ObservableCollection<string> list = new ObservableCollection<string>();
@@ -168,260 +155,106 @@ namespace DataHarbor.ViewModels.Pages
         }
 
         //检测最高行数
-        public int GetMaxRowWithContent(string filePath)
-        {
-            using (var package = new ExcelPackage(new System.IO.FileInfo(filePath)))
-            {
-                var worksheet = package.Workbook.Worksheets[0]; // 选择您要读取的工作表
-
-                int rowCount = worksheet.Dimension.Rows;
-
-                // 从底部开始逐行向上检查，找到第一个非空的行
-                for (int row = rowCount; row >= 1; row--)
-                {
-                    if (worksheet.Cells[row, 1].Value != null)
-                    {
-                        return row;
-                    }
-                }
-
-                // 如果没有内容，则返回0或其他适当的值
-                return 0;
-            }
-        }
+        public int GetMaxRowWithContent(string filePath) => ProcessExcelFile(filePath, (worksheet) => worksheet.Dimension?.End.Row ?? -99);
 
         //检测最高列数
-        public int GetMaxColumnWithContent(string filePath)
-        {
-            using (var package = new ExcelPackage(new System.IO.FileInfo(filePath)))
-            {
-                var worksheet = package.Workbook.Worksheets[0]; // 选择您要读取的工作表
-                int columnCount = worksheet.Dimension.Columns;
-                for (int column = columnCount; column >= 1; column--)
-                {
-                    if (worksheet.Cells[1, column].Value != null)
-                    {
-                        return column;
-                    }
-                }
-                // 如果没有内容，则返回0或其他适当的值
-                return 0;
-            }
-        }
+        public int GetMaxColumnWithContent(string filePath) => ProcessExcelFile(filePath, (worksheet) => worksheet.Dimension?.End.Column ?? -99);
 
         //判断excel文件是否为空文件
-        private bool IsEmptyExcel(string filePath)
+        private bool IsEmptyExcel(string filePath) => ProcessExcelFile(filePath, (worksheet) => worksheet.Dimension == null);
+
+        //读取 excel 文件信息
+        private T ProcessExcelFile<T>(string filePath, Func<ExcelWorksheet, T> process)
         {
-            using (var package = new ExcelPackage(new System.IO.FileInfo(filePath)))
+            using (var package = new ExcelPackage(new FileInfo(filePath)))
             {
-                var worksheet = package.Workbook.Worksheets[0]; // 选择您要读取的工作表
-                if (worksheet.Dimension != null)
-                {
-                    int rowCount = worksheet.Dimension.Rows;
-                    int columnCount = worksheet.Dimension.Columns;
-                    if (rowCount == 0 && columnCount == 0)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return true;
-                }
+                var worksheet = package.Workbook.Worksheets[0];
+                return process(worksheet);
             }
         }
 
         //写入单个excel文件
         private void Write_Excel(string filePath, int fileIndex)
         {
-            string new_file_path = "";
-            string new_file_name = "";
-            string new_sheet_name = "Sheet1";
-            string file_format = ".xlsx";
-            int row = GetMaxRowWithContent(filePath);
-            int column = GetMaxColumnWithContent(filePath);
-            using (var package = new ExcelPackage(new System.IO.FileInfo(filePath)))
-            {
-                var worksheet = package.Workbook.Worksheets[0]; // 选择要读取的工作表
-                ExcelPackage newPackage = new ExcelPackage();
+            var maxRow = GetMaxRowWithContent(filePath);
+            var maxColumn = GetMaxColumnWithContent(filePath);
+            using var package = new ExcelPackage(new FileInfo(filePath));
+            var worksheet = package.Workbook.Worksheets[0];
+            using var newPackage = new ExcelPackage();
+            var newWorksheet = newPackage.Workbook.Worksheets.Add("Sheet1");
 
-                ExcelWorksheet newWorksheet = newPackage.Workbook.Worksheets.Add(new_sheet_name);
-                int tempindex = 1;
-                //定排列方式
-                if (Orientation_1 == true)
-                {
-                    //遍历最高列数
-                    for (int i = 1; i <= column; i++)
-                    {
-                        //遍历最高行数
-                        for (int j = 1; j <= row; j++)
-                        {
-                            //如果格子内容不为null，则将内容写到新建的工作簿第一列
-                            if (worksheet.Cells[j, i].Value.ToString() != "")
-                            {
-                                newWorksheet.Cells[1, tempindex].Value = worksheet.Cells[j, i].Value;
-                                tempindex++;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    //遍历最高列数
-                    for (int i = 1; i <= column; i++)
-                    {
-                        //遍历最高行数
-                        for (int j = 1; j <= row; j++)
-                        {
-                            //如果格子内容不为null，则将内容写到新建的工作簿第一列
-                            if (worksheet.Cells[j, i].Value.ToString() != "")
-                            {
-                                newWorksheet.Cells[tempindex, 1].Value = worksheet.Cells[j, i].Value;
-                                tempindex++;
-                            }
-                        }
-                    }
-                }
+            int tempIndex = 1;
+            ProcessCells(maxRow, maxColumn, worksheet, newWorksheet, tempIndex, Orientation_1);
 
-                //如新文件名称被设定为空，就设定为原来的名字
-                if (FileNames.Count != 0)
-                {
-                    new_file_name = FileNames[fileIndex].NewFileName;
-                }
-                else
-                {
-                    new_file_name = FileNames[fileIndex].CurrentFileName;
-                }
+            string newFileName = FileNames.Count > 0 ? FileNames[fileIndex].NewFileName : FileNames[fileIndex].CurrentFileName;
+            newFileName = Prefix ? AddContent + newFileName : newFileName + AddContent;
 
-                //前后缀名称
-                if (Prefix)
-                {
-                    new_file_name = AddContent + new_file_name;
-                }
-                else
-                {
-                    new_file_name = new_file_name + AddContent;
-                }
-
-
-                //保存文件到指定文件夹
-                if (TempIndex == "1")
-                {
-                    new_file_path = FileHelper.SaveFile(CustomFilePath, new_file_name, file_format);
-                }
-                else
-                {
-                    //保存文件到默认文件夹
-                    new_file_path = FileHelper.SaveFile(FileHelper.GetFolderPath(filePath), new_file_name, file_format);
-                }
-                tempFilePath = new_file_path;   //临时文件位置，打开文件夹位置
-                newPackage.SaveAs(new System.IO.FileInfo(new_file_path));
-            }
+            string newFilePath = TempIndex == "1" ? FileHelper.SaveFile(CustomFilePath, newFileName, ".xlsx") : FileHelper.SaveFile(FileHelper.GetFolderPath(filePath), newFileName, ".xlsx");
+            tempFilePath = newFilePath;
+            newPackage.SaveAs(new FileInfo(newFilePath));
         }
 
-        //合并为一个文件（不同工作簿）
-        private void Merge_Write_Excel(string filePath, int fileIndex, ExcelPackage newPackage)
+        //遍历写入excel数据
+        private void ProcessCells(int maxRow, int maxColumn, ExcelWorksheet sourceWorksheet, ExcelWorksheet targetWorksheet, int tempIndex, bool verticalOrientation)
         {
-            int row = GetMaxRowWithContent(filePath);
-            int column = GetMaxColumnWithContent(filePath);
-            using (var package = new ExcelPackage(new System.IO.FileInfo(filePath)))
+            int currentRow = 1; // 开始的行号
+            int maxExcelColumns = 16384; // Excel的最大列数
+            int maxExcelRows = 1048576; // Excel的最大行数
+            for (int i = 1; i <= maxColumn; i++)
             {
-                var worksheet = package.Workbook.Worksheets[0]; // 选择要读取的工作表
-
-                //截断文件名称到工作簿名称最大支持字符数量
-                string sheetName = FileHelper.GetFileName(filePath);
-                if (sheetName.Length > 24)
+                for (int j = 1; j <= maxRow; j++)
                 {
-                    sheetName = sheetName.Substring(0, 24);
-                    // 使用Dispatcher在UI线程上显示消息框
-                    Application.Current.Dispatcher.Invoke(() =>
+                    var tempValue = sourceWorksheet.Cells[j, i].Value;
+                    if (tempValue != null && tempValue.ToString() != "0" && 
+                        double.TryParse(tempValue.ToString(), out _) && tempValue.ToString() != "NaN" &
+                                    tempValue != null)
                     {
-                        MessageService.AutoShowDialog("说明", "部分文件名称超出工作簿命名允许长度，已做截断处理", ControlAppearance.Info);
-                    });
-                    sheetName = (fileIndex + 1).ToString() + "_" + sheetName;
-                }
-                ExcelWorksheet newWorksheet = newPackage.Workbook.Worksheets.Add(sheetName);
-                int tempindex = 1;
-                //定排列方式
-                if (Orientation_1 == true)
-                {
-                    //遍历最高列数
-                    for (int i = 1; i <= column; i++)
-                    {
-                        //遍历最高行数
-                        for (int j = 1; j <= row; j++)
+                        if (verticalOrientation)
                         {
-                            //如果格子内容不为null，则将内容写到新建的工作簿第一列
-                            if (worksheet.Cells[j, i].Value.ToString() != "")
+                            if (tempIndex > maxExcelColumns) // 检查是否需要换行
                             {
-                                newWorksheet.Cells[1, tempindex].Value = worksheet.Cells[j, i].Value;
-                                tempindex++;
+                                currentRow++; // 移动到下一行
+                                tempIndex = 1; // 重置tempIndex为第一列
+                                               // 使用Dispatcher在UI线程上显示消息框
+                                Application.Current.Dispatcher.Invoke(() =>
+                                {
+                                    MessageService.AutoShowDialog("消息📝", "文件数据超出 Excel 单行最大列数，已换行处理", ControlAppearance.Info);
+                                });
                             }
+                            targetWorksheet.Cells[currentRow, tempIndex].Value = tempValue;
                         }
+                        else
+                        {
+                            if (tempIndex > maxExcelRows) // 检查是否需要换列
+                            {
+                                currentRow++; // 移动到下一行
+                                tempIndex = 1; // 重置tempIndex为第一列
+                                Application.Current.Dispatcher.Invoke(() =>
+                                {
+                                    MessageService.AutoShowDialog("消息📝", "文件数据超出 Excel 单行最大行数，已换列处理", ControlAppearance.Info);
+                                });
+                            }
+                            targetWorksheet.Cells[tempIndex, currentRow].Value = tempValue;
+                        }
+
+                        tempIndex++;
                     }
                 }
-                else
-                {
-                    //遍历最高列数
-                    for (int i = 1; i <= column; i++)
-                    {
-                        //遍历最高行数
-                        for (int j = 1; j <= row; j++)
-                        {
-                            //如果格子内容不为null，则将内容写到新建的工作簿第一列
-                            if (worksheet.Cells[j, i].Value.ToString() != "")
-                            {
-                                newWorksheet.Cells[tempindex, 1].Value = worksheet.Cells[j, i].Value;
-                                tempindex++;
-                            }
-                        }
-                    }
-                }
-                string new_file_path = "";
-                //保存文件到指定文件夹
-                if (TempIndex == "1")
-                {
-                    new_file_path = FileHelper.SaveFile(CustomFilePath, "合并文件", ".xlsx");
-                }
-                else
-                {
-                    //保存文件到默认文件夹
-                    new_file_path = FileHelper.SaveFile(FileHelper.GetFolderPath(filePath), "合并文件", ".xlsx");
-                }
-                tempFilePath = new_file_path;   //临时文件位置，打开文件夹位置
-
             }
         }
 
         //合并为一个文件(相同工作簿)
-        private void Merge_Write_Excel(string filePath, int index)
+        private void Merge_Write_Excel(string filePath, int index, string new_file_path)
         {
             int row = GetMaxRowWithContent(filePath);
             int column = GetMaxColumnWithContent(filePath);
+            string fileName = FileHelper.GetFileName(filePath);
             string sheetName = "sheet1";
             using (var package = new ExcelPackage(new System.IO.FileInfo(filePath)))
             {
                 var worksheet = package.Workbook.Worksheets[0]; // 选择要读取的工作表
-                int tempindex = 1;
-                //保存文件到指定文件夹
-                if (index == 1)
-                {
-                    string new_file_path = "";
-                    if (TempIndex == "1")
-                    {
-                        new_file_path = FileHelper.SaveFile(CustomFilePath, "合并文件", ".xlsx");
-                    }
-                    else
-                    {
-                        //保存文件到默认文件夹
-                        new_file_path = FileHelper.SaveFile(FileHelper.GetFolderPath(filePath), "合并文件", ".xlsx");
-                    }
-                    tempFilePath = new_file_path;   //临时文件位置，打开文件夹位置
-                }
+                int tempindex = 2;
+                tempFilePath = new_file_path;   //临时文件位置，打开文件夹位置
 
                 // 打开现有的Excel文件
                 using (var new_package = new ExcelPackage(new FileInfo(tempFilePath)))
@@ -438,35 +271,72 @@ namespace DataHarbor.ViewModels.Pages
                         new_worksheet = workbook.Worksheets.Add(sheetName);
                     }
 
-                    //定排列方式
+                    //定排列方式-如果是行排列
                     if (Orientation_1 == true)
                     {
+                        new_worksheet.Cells[index, 1].Value = fileName;
                         //遍历最高列数
                         for (int i = 1; i <= column; i++)
                         {
                             //遍历最高行数
                             for (int j = 1; j <= row; j++)
                             {
-                                //如果格子内容不为null，则将内容写到新建的工作簿第一列
-                                if (worksheet.Cells[j, i].Value.ToString() != "")
+                                var temp_value = worksheet.Cells[j, i].Value;
+                                if(temp_value != null)
                                 {
-                                    new_worksheet.Cells[index, tempindex].Value = worksheet.Cells[j, i].Value;
-                                    tempindex++;
+                                    double num;
+                                    bool isnum = double.TryParse(temp_value?.ToString(), out num);
+                                    //如果格子内容不为null，则将内容写到新建的工作簿第一列
+                                    if (temp_value.ToString() != "" & temp_value.ToString() != "0" & isnum & temp_value.ToString() != "NaN")
+                                    {
+                                        if (tempindex >= 16384)
+                                        {
+                                            new_worksheet.Cells[index, 1].Value = "警告⚠️：文件 " + fileName + " 数据超出 Excel 最大限制，已截断后续内容";
+                                            // 使用Dispatcher在UI线程上显示消息框
+                                            Application.Current.Dispatcher.Invoke(() =>
+                                            {
+                                                MessageService.AutoShowDialog("警告⚠️", fileName + " 数据超出 Excel 单行最大列数，已截断当前文件后续内容", ControlAppearance.Danger);
+                                            });
+                                            new_package.Save();
+                                            return;
+                                        }
+                                        new_worksheet.Cells[index, tempindex].Value = worksheet.Cells[j, i].Value;
+                                        tempindex++;
+                                    }
                                 }
                             }
                         }
                     }
                     else
                     {
+                        new_worksheet.Cells[1, index].Value = fileName;
                         //遍历最高列数
                         for (int i = 1; i <= column; i++)
                         {
                             //遍历最高行数
                             for (int j = 1; j <= row; j++)
                             {
+                                var temp_value = worksheet.Cells[j, i].Value;
+                                double num;
+                                bool isnum = double.TryParse(temp_value?.ToString(), out num);
                                 //如果格子内容不为null，则将内容写到新建的工作簿第一列
-                                if (worksheet.Cells[j, i].Value.ToString() != "")
+                                if (temp_value.ToString() != "" &
+                                    temp_value.ToString() != "0" &
+                                    isnum &
+                                    temp_value.ToString() != "NaN" &
+                                    temp_value != null)
                                 {
+                                    if (tempindex >= 1048576)
+                                    {
+                                        new_worksheet.Cells[1, index].Value = "警告⚠️：文件 " + fileName + " 数据超出 Excel 最大限制，已截断后续内容";
+                                        // 使用Dispatcher在UI线程上显示消息框
+                                        Application.Current.Dispatcher.Invoke(() =>
+                                        {
+                                            MessageService.AutoShowDialog("警告⚠️", fileName + " 数据超出 Excel 单列最大行数，已截断当前文件后续内容", ControlAppearance.Danger);
+                                        });
+                                        new_package.Save();
+                                        return;
+                                    }
                                     new_worksheet.Cells[tempindex, index].Value = worksheet.Cells[j, i].Value;
                                     tempindex++;
                                 }
@@ -497,14 +367,14 @@ namespace DataHarbor.ViewModels.Pages
         public void RefreshList()
         {
             FileNames.Clear();
-            //添加姓名
             foreach (var tempName in FileHelper.GetFileNames(SelectedFiles))
             {
-                MappingFile temp = new MappingFile();
-                temp.CurrentFileIndex = "(" + (FileHelper.GetFileNames(SelectedFiles).IndexOf(tempName) + 1) + ")";
-                temp.CurrentFileName = tempName;
-                temp.NewFileName = tempName;
-                FileNames.Add(temp);
+                FileNames.Add(new MappingFile
+                {
+                    CurrentFileIndex = $"({FileHelper.GetFileNames(SelectedFiles).IndexOf(tempName) + 1})",
+                    CurrentFileName = tempName,
+                    NewFileName = tempName
+                });
             }
         }
 
@@ -566,22 +436,33 @@ namespace DataHarbor.ViewModels.Pages
                 await Task.Run(() =>
                 {
                     int temp_index = 1;
+                    string new_file_path = "";
+                    if (TempIndex == "1")
+                    {
+                        new_file_path = FileHelper.SaveFile(CustomFilePath, "MergeFile", ".xlsx");
+                    }
+                    else
+                    {
+                        //保存文件到默认文件夹
+                        new_file_path = FileHelper.SaveFile(FileHelper.GetFolderPath(SelectedFiles[0]), "MergeFile", ".xlsx");
+                    }
                     //遍历文件列表
                     foreach (string filePath in SelectedFiles)
                     {
                         int index = SelectedFiles.IndexOf(filePath);
-                        // 写入Excel
+                        // 检查文件是否为空
                         if (!IsEmptyExcel(filePath))
                         {
-                            //是否合并为一个excel文件
+                            // 判断是否合并为一个Excel文件
                             if (IsOneFile)
                             {
-                                Merge_Write_Excel(filePath, temp_index);
+                                // 合并到一个工作簿
+                                Merge_Write_Excel(filePath, temp_index, new_file_path);
                                 temp_index++;
-
                             }
                             else
                             {
+                                // 每个文件写入单独的Excel
                                 Write_Excel(filePath, index);
                             }
                         }
@@ -629,16 +510,7 @@ namespace DataHarbor.ViewModels.Pages
         [RelayCommand]
         private void OpenTargetFolder()
         {
-
-            if (TempIndex == "0" && SelectedFiles.Count != 0)
-            {
-                FileHelper.OpenFolder(tempFilePath);
-            }
-            else
-            {
-                FileHelper.OpenFolder(tempFilePath);
-            }
-
+            FileHelper.OpenFolder(tempFilePath);
         }
     }
 }

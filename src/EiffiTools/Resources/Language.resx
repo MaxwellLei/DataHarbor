@@ -122,7 +122,7 @@
     <value>Change the language support of the software (some language changes require restarting the software to obtain support)</value>
   </data>
   <data name="Languages_S_zhCN" xml:space="preserve">
-    <value>Simplified Chinese</value>
+    <value>简体中文</value>
   </data>
   <data name="Languages_S_enUS" xml:space="preserve">
     <value>English (United States)</value>
@@ -380,6 +380,9 @@
     <value></value>
   </data>
   <data name="DataPage_UpdateTime" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="DocumentCheck_Page" xml:space="preserve">
     <value></value>
   </data>
 </root>

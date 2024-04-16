@@ -145,7 +145,7 @@
     <value>简体中文</value>
   </data>
   <data name="Languages_S_enUS" xml:space="preserve">
-    <value>英语(美国)</value>
+    <value>English(US)</value>
   </data>
   <data name="CheckUpdate" xml:space="preserve">
     <value>检查更新</value>
@@ -401,5 +401,17 @@
   </data>
   <data name="DataPage_UpdateTime" xml:space="preserve">
     <value>更新时间：</value>
+  </data>
+  <data name="Dashboard_C10" xml:space="preserve">
+    <value>文档互检</value>
+  </data>
+  <data name="Dashboard_C10_D" xml:space="preserve">
+    <value>自建数据库进行文档互检</value>
+  </data>
+  <data name="Dashboard_C11" xml:space="preserve">
+    <value>人脸识别</value>
+  </data>
+  <data name="Dashboard_C11_D" xml:space="preserve">
+    <value>使用人脸识别来计数统计</value>
   </data>
 </root>

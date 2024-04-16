@@ -188,5 +188,10 @@ namespace DataHarbor.Views.Pages
             }
 
         }
+
+        private void ItemsControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
